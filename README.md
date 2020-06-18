@@ -1,6 +1,6 @@
 [![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
 [![Flutter](https://img.shields.io/badge/Flutter-1.17.3-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
-[![VS Code](https://img.shields.io/badge/VS Code-1.46.0-blue.svg)](https://code.visualstudio.com/)
+[![VS Code](https://img.shields.io/badge/VSCode-1.46.0-blue.svg)](https://code.visualstudio.com/)
 
 ### 简介
 electricity_flutter是跟随[技术胖老师](https://jspang.com/detailed?id=53)教程的练手项目，支持安卓和iOS，仅供大家交流学习。
