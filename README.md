@@ -12,6 +12,10 @@ electricity_flutter是跟随[技术胖老师](https://jspang.com/detailed?id=53)
 * [x] 购物车页面
 
 ### 效果图
+|首页|详情页|分类页|购物车|
+|:---:|:---:|:---:|:---:|
+|<img src="images/screen1.jpg" height="25%"/>|<img src="images/screen2.jpg" height="25%"/>|<img src="images/screen3.jpg" height="25%"/>|<img src="images/screen4.jpg" height="25%"/>|
+
 
 ### 使用教程
 * 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
