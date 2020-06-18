@@ -1,3 +1,5 @@
+[![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
+
 ### 简介
 electricity_flutter是跟随[技术胖老师](https://jspang.com/detailed?id=53)教程的练手项目，支持安卓和iOS，仅供大家交流学习。
 
@@ -10,7 +12,7 @@ electricity_flutter是跟随[技术胖老师](https://jspang.com/detailed?id=53)
 ### 效果图
 
 ### 使用教程
-* 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter)
+* 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
 * 运行：flutter run
 
 #### iOS
