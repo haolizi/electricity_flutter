@@ -25,6 +25,19 @@ electricity_flutter是跟随[技术胖老师](https://jspang.com/detailed?id=53)
 * 进入项目：cd ios/
 * 安装依赖：pod install  或 pod update
 
+#### 依赖
+* 图标[cupertino_icons:](https://pub.flutter-io.cn/packages/cupertino_icons) ^0.1.2
+* 轮播图[flutter_swiper:](https://pub.flutter-io.cn/packages/flutter_swiper) ^1.1.6
+* 网络请求[dio:](https://pub.flutter-io.cn/packages/dio) ^3.0.0
+* 适配[flutter_screenutil:](https://pub.flutter-io.cn/packages/flutter_screenutil) ^1.1.0
+* Loading动画[flutter_spinkit:](https://pub.flutter-io.cn/packages/flutter_spinkit) ^4.1.2
+* 超文本点击[url_launcher:](https://pub.flutter-io.cn/packages/url_launcher) ^5.4.10
+* 上下拉刷新[flutter_easyrefresh:](https://pub.flutter-io.cn/packages/flutter_easyrefresh) ^2.1.1
+* 状态管理[provider:](https://pub.flutter-io.cn/packages/provider) ^4.1.3
+* 路由[fluro:](https://pub.flutter-io.cn/packages/fluro) ^1.6.3
+* html[flutter_html:](https://pub.flutter-io.cn/packages/flutter_html) ^1.0.0
+* 数据持久化[shared_preferences:](https://pub.flutter-io.cn/packages/shared_preferences) ^0.5.7+3
+
 ### 我的环境
 ```
 flutter doctor -v
