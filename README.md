@@ -1,9 +1,9 @@
 [![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
 [![Flutter](https://img.shields.io/badge/Flutter-1.17.3-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
-[![VS Code](https://img.shields.io/badge/VSCode-1.46.0-blue.svg)](https://code.visualstudio.com/)
+[![VSCode](https://img.shields.io/badge/VSCode-1.46.0-green.svg)](https://code.visualstudio.com/)
 
 ### 简介
-electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)教程，稍加优化的练手项目，支持安卓和iOS，仅供大家交流学习。
+electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)教程，稍加优化的电商项目，支持安卓和iOS，仅供大家交流学习。
 
 ### 目前实现模块
 * [x] 首页列表
@@ -16,15 +16,7 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 |:---:|:---:|:---:|:---:|
 |<img src="images/screen1.jpg" height="25%"/>|<img src="images/screen2.jpg" height="25%"/>|<img src="images/screen3.jpg" height="25%"/>|<img src="images/screen4.jpg" height="25%"/>|
 
-
-### 使用教程
-* 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
-* 运行：flutter run
-##### iOS
-* 进入项目：cd ios/
-* 安装依赖：pod install  或 pod update
-
-#### 依赖
+### 依赖
 * 图标：[cupertino_icons:^0.1.2](https://pub.flutter-io.cn/packages/cupertino_icons) 
 * 轮播图：[flutter_swiper:^1.1.6](https://pub.flutter-io.cn/packages/flutter_swiper) 
 * 网络请求：[dio:^3.0.0](https://pub.flutter-io.cn/packages/dio) 
@@ -36,6 +28,16 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 * 路由：[fluro:^1.6.3](https://pub.flutter-io.cn/packages/fluro) 
 * html：[flutter_html:^1.0.0](https://pub.flutter-io.cn/packages/flutter_html) 
 * 数据持久化：[shared_preferences:^0.5.7+3](https://pub.flutter-io.cn/packages/shared_preferences) 
+
+### 使用教程
+* 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
+* 诊断：flutter doctor
+* 运行：flutter run
+##### iOS
+* 进入项目：cd ios/
+* 安装依赖：pod install  或 pod update
+如果出现`(Connection refused - connect(2) for "raw.githubusercontent.com" port 443)`，则表示还没设置国内源，
+或者尝试下科学上网。
 
 ### 我的环境
 ```
@@ -80,3 +82,7 @@ flutter doctor -v
 ! Doctor found issues in 2 categories.
 ```
 两个x是插件未安装，不用理会。
+
+### 如有问题请参考
+[https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
+[https://flutterchina.club/get-started/install](https://flutterchina.club/get-started/install)
