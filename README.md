@@ -11,6 +11,10 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 * [x] 分类页
 * [x] 购物车页面
 
+### 更新记录
+* 2020-6-18 第一版
+
+
 ### 效果图
 |首页|详情页|分类页|购物车|
 |:---:|:---:|:---:|:---:|
@@ -36,6 +40,7 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 ##### iOS
 * 进入项目：cd ios/
 * 安装依赖：pod install  或 pod update
+
 如果出现`(Connection refused - connect(2) for "raw.githubusercontent.com" port 443)`，则表示还没设置国内源，
 或者尝试下科学上网。
 
@@ -84,5 +89,5 @@ flutter doctor -v
 两个x是插件未安装，不用理会。
 
 ### 如有问题请参考
-[https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
-[https://flutterchina.club/get-started/install](https://flutterchina.club/get-started/install)
+* [https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
+* [https://flutterchina.club/get-started/install](https://flutterchina.club/get-started/install)
