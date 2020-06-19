@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert';
+import 'package:fluro/fluro.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/service_method.dart';
 import '../models/category_model.dart';
@@ -13,6 +14,7 @@ import '../models/categody_goods_model.dart';
 import '../providers/category_provider.dart';
 import '../providers/category_goods_provider.dart';
 import '../../../config/color.dart';
+import '../../../config/routers/router_application.dart';
 
 class CatagoryPage extends StatefulWidget {
   CatagoryPage({Key key}) : super(key: key);
@@ -143,7 +145,7 @@ class _RightTopCategoryState extends State<RightTopCategory> {
       builder: (BuildContext context, childCategory, child) {
         return  Container(
           width: ScreenUtil().setWidth(750 - 180),
-          height: ScreenUtil().setHeight(80),
+          height: 40,
           decoration: BoxDecoration(border: Border(bottom: BorderSide(width: 1, color: Colors.black12))),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -206,16 +208,18 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
 
   @override
   Widget build(BuildContext context) {
+    // double screenHg = MediaQuery.of(context).size.height;
     return Consumer<CategoryGoodsListProvide>(
       builder: (BuildContext context, goodsData, child) {
-        return Container(
-          width: ScreenUtil().setWidth(570),
-          height: ScreenUtil().setHeight(984),
-          child: ListView.builder(
-            itemCount: goodsData.goodsList.length,
-            itemBuilder: (context, index) {
-              return _listItem(goodsData.goodsList, index);
-            }
+        return Expanded(
+          child: Container(
+            width: ScreenUtil().setWidth(570),
+            child: ListView.builder(
+              itemCount: goodsData.goodsList.length,
+              itemBuilder: (context, index) {
+                return _listItem(goodsData.goodsList, index);
+              }
+            ),
           ),
         );
       },
@@ -224,7 +228,9 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
 
   Widget _listItem(List goodsList, int index) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        ApplicationRouter.router.navigateTo(context, 'detail?id=${goodsList[index].goodsId}', transition:TransitionType.native);
+      },
       child: Container(
         padding: EdgeInsets.only(top:5.0, bottom:5.0),
         decoration: BoxDecoration(

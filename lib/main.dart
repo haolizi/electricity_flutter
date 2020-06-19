@@ -9,11 +9,13 @@ import 'pages/cart/providers/cart_provider.dart';
 import 'package:fluro/fluro.dart';
 import 'config/routers/router_application.dart';
 import 'config/routers/routers.dart';
+import 'config/routers/tab_index_provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => CurrentIndexProvider()),
         ChangeNotifierProvider(create: (context) => ChildCategoryProvoder()),
         ChangeNotifierProvider(create: (context) => CategoryGoodsListProvide()),
         ChangeNotifierProvider(create: (context) => DetailInfoProvider()),

@@ -15,11 +15,9 @@ class DioUtil {
       if (formData == null) {
         response = await dio.post(servicePath[url]);
       } else {
-        print('------formData:${formData}');
         response = await dio.post(servicePath[url], queryParameters:formData);
       }
       if (response.statusCode == 200) {
-        print('------data:${response.data}');
         return response.data; 
       } else {
         throw Exception("接口异常");

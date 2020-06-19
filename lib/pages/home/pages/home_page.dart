@@ -238,7 +238,7 @@ class Category extends StatelessWidget {
       this.categoryList.removeRange(10, this.categoryList.length);
     }
     return Container(
-      height: ScreenUtil().setHeight(310),
+      height: 165,
       padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
       child: GridView.count(
         physics: const NeverScrollableScrollPhysics(),
@@ -252,7 +252,7 @@ class Category extends StatelessWidget {
   }
 }
 
-//分类下的横幅广告
+// 分类下的横幅广告
 class AdBanner extends StatelessWidget {
   final String bgImage; 
   const AdBanner({Key key, this.bgImage}) : super(key: key);
@@ -266,7 +266,7 @@ class AdBanner extends StatelessWidget {
         },
         child: Image.network(
           bgImage,
-          fit: BoxFit.cover,
+          // fit: BoxFit.fill,
         ),
       ),
     );
@@ -283,14 +283,15 @@ class LeaderInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(230),
+      width: ScreenUtil().setWidth(750),
+      height: 115,
       child: InkWell(
         onTap: () {
           _leaderInfoTap();
         },
         child: Image.network(
           bgImage,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
     );
@@ -360,7 +361,7 @@ class Recommend extends StatelessWidget {
   // 列表
   Widget _recommentList(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(330),
+      height: 180,
       child: ListView.builder(
           itemCount: recommentList.length,
           scrollDirection: Axis.horizontal,
@@ -373,7 +374,7 @@ class Recommend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(391),
+      height: 211,
       margin: EdgeInsets.only(top: ScreenUtil().setHeight(10.0)),
       child: Column(
         children: <Widget>[

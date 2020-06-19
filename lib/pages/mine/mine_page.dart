@@ -3,19 +3,25 @@
  */
 
 import 'package:flutter/material.dart';
+import './views/mine_head_widget.dart';
+import './views/mine_order_widget.dart';
+import './views/mine_order_status_widget.dart';
+import './views/mine_list_widget.dart';
 
-class SetPage extends StatefulWidget {
-  SetPage({Key key}) : super(key: key);
+class SetPage extends StatelessWidget {
+  const SetPage({Key key}) : super(key: key);
 
-  @override
-  _SetPageState createState() => _SetPageState();
-}
-
-class _SetPageState extends State<SetPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('11111'),
+    return ListView(
+      children: <Widget>[
+        TopHead(),
+        OrdeInfo(),
+        OrderStatus(),
+        ListTitleWidget()
+      ],
     );
   }
+
+
 }

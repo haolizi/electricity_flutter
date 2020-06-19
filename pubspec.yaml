@@ -34,7 +34,9 @@ dependencies:
   fluro: ^1.6.3
   flutter_html: ^1.0.0
   shared_preferences: ^0.5.7+3
-  
+  toast: ^0.1.5
+  add_cart_parabola: ^0.0.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,8 +53,18 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-
+  assets:
+    - images/mine/avatar_placehold_gray.png
+    - images/mine/wait_pay.png
+    - images/mine/wait_delivery.png
+    - images/mine/wait_harvest.png
+    - images/mine/wait_evaluate.png
+    - images/mine/right_arrow.png
+    - images/mine/mine_order_list.png
+    - images/mine/mine_coupons.png
+    - images/mine/mine_position.png
+    - images/mine/mine_service.png
+    - images/mine/mine_about.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

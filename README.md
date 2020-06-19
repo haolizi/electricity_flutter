@@ -1,3 +1,5 @@
+<img src="images/top_img.png" width="100%">
+
 [![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
 [![Flutter](https://img.shields.io/badge/Flutter-1.17.3-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
 [![VSCode](https://img.shields.io/badge/VSCode-1.46.0-green.svg)](https://code.visualstudio.com/)
@@ -10,15 +12,21 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 * [x] 商品详情页
 * [x] 分类页
 * [x] 购物车页面
+* [x] 个人中心
 
 ### 更新记录
-* 2020-6-18 第一版
+* 2020-6-19 优化购物车，添加个人中心页面
+* 2020-6-18 第一次提交
 
 
-### 效果图
-|首页|详情页|分类页|购物车|
-|:---:|:---:|:---:|:---:|
-|<img src="images/screen1.jpg" height="25%"/>|<img src="images/screen2.jpg" height="25%"/>|<img src="images/screen3.jpg" height="25%"/>|<img src="images/screen4.jpg" height="25%"/>|
+### 📸 预览
+|全览||首页|详情页|
+|:---:|:---:|:---:|
+|<img src="images/screen.gif" height="33%"/>|<img src="images/screen1.png" height="33%"/>|<img src="images/screen2.png" height="33%"/>|
+
+|分类页|购物车|个人中心|
+|:---:|:---:|:---:|
+|<img src="images/screen3.png" height="33%"/>|<img src="images/screen4.png" height="33%"/>|<img src="images/screen5.png" height="33%"/>|
 
 ### 依赖
 * 图标：[cupertino_icons:^0.1.2](https://pub.flutter-io.cn/packages/cupertino_icons) 
@@ -33,7 +41,7 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 * html：[flutter_html:^1.0.0](https://pub.flutter-io.cn/packages/flutter_html) 
 * 数据持久化：[shared_preferences:^0.5.7+3](https://pub.flutter-io.cn/packages/shared_preferences) 
 
-### 使用教程
+### ✨使用教程
 * 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
 * 诊断：flutter doctor
 * 运行：flutter run
@@ -88,6 +96,6 @@ flutter doctor -v
 ```
 两个x是插件未安装，不用理会。
 
-### 如有问题请参考
+### ❗️如有问题请参考
 * [https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
 * [https://flutterchina.club/get-started/install](https://flutterchina.club/get-started/install)
