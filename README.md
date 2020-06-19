@@ -23,8 +23,7 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 
 |H|U|D|
 |:---:|:---:|:---:|
-|![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|
-![image](images/screen3.png)|![image](images/screen4.png)|![image](images/screen5.jpg)|
+|<img src="images/screen.gif" height="33%"/>|<img src="images/screen1.png" height="33%"/>|<img src="images/screen2.png" height="33%"/>|<img src="images/screen3.png" height="33%"/>|<img src="images/screen4.png" height="33%"/>|<img src="images/screen5.jpg" height="33%"/>|
 
 ### 依赖
 * 图标：[cupertino_icons:^0.1.2](https://pub.flutter-io.cn/packages/cupertino_icons) 
