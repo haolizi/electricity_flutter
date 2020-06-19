@@ -20,6 +20,7 @@ electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)
 
 
 ### 📸 预览
+
 |:---:|:---:|:---:|
 |![image](images/screen.gif)|<img src="images/screen1.png">|<img src="images/screen2.png">|<img src="images/screen3.png" >|<img src="images/screen4.png">|<img src="images/screen5.jpg">|
 
