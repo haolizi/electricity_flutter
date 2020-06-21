@@ -22,6 +22,4 @@ class SetPage extends StatelessWidget {
       ],
     );
   }
-
-
 }

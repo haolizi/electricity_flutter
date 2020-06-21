@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../providers/detail_provider.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'detail_comments_widget.dart';
 
 class DetailWeb extends StatelessWidget {
   const DetailWeb({Key key}) : super(key: key);
@@ -12,6 +12,7 @@ class DetailWeb extends StatelessWidget {
     return Consumer<DetailInfoProvider>(
       builder: (context, child, value) {
         var goodsDetail = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodInfo.goodsDetail;
+        List<dynamic> commentsList = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodComments;
         var isLeft = Provider.of<DetailInfoProvider>(context, listen: false).isSelectLeft;
         if (goodsDetail != null) {
           if (isLeft) {
@@ -22,10 +23,7 @@ class DetailWeb extends StatelessWidget {
             );
           } else {
             return Container(
-              width: ScreenUtil().setWidth(750),
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              child: Text('暂时没有数据'),
+              child: DetailComments(commentsList:commentsList)
             );
           }
         } else {

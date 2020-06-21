@@ -1,3 +1,8 @@
+/*
+ * -------详情页-------
+ * provider
+ */
+
 import 'package:flutter/material.dart';
 import '../models/detail_model.dart';
 import '../../../config/service_method.dart';

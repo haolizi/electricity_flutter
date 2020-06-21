@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'pages/tabs.dart';
 import 'pages/catagory/providers/category_provider.dart';
 import 'pages/catagory/providers/category_goods_provider.dart';
+import 'pages/home/providers/home_provider.dart';
 import 'pages/home/providers/detail_provider.dart';
 import 'pages/cart/providers/cart_provider.dart';
 import 'package:fluro/fluro.dart';
@@ -15,6 +16,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => HomeContentProvider()),
+        ChangeNotifierProvider(create: (context) => HomeListProvider()),
         ChangeNotifierProvider(create: (context) => CurrentIndexProvider()),
         ChangeNotifierProvider(create: (context) => ChildCategoryProvoder()),
         ChangeNotifierProvider(create: (context) => CategoryGoodsListProvide()),
