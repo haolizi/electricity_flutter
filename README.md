@@ -5,7 +5,7 @@
 [![VSCode](https://img.shields.io/badge/VSCode-1.46.0-green.svg)](https://code.visualstudio.com/)
 
 ### 简介
-electricity_flutter是仿照[技术胖老师](https://jspang.com/detailed?id=53)教程，稍加优化的电商项目，支持安卓和iOS，仅供大家交流学习。
+electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter电商项目，支持安卓和iOS，仅供大家交流学习。
 
 ### 目前实现模块
 * [x] 首页列表
