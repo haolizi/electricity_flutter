@@ -14,17 +14,16 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 * [x] 购物车页面
 * [x] 个人中心
 
-### 更新记录
-* 2020-6-19 优化购物车，添加个人中心页面
-* 2020-6-18 第一次提交
-
-
 ### 📸 预览
 
 ||||
 |:---:|:---:|:---:|
 |![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|
 ![image](images/screen3.png)|![image](images/screen4.png)|![image](images/screen5.jpg)|
+
+### 更新记录
+* 2020-6-19 优化购物车，添加个人中心页面
+* 2020-6-18 第一次提交
 
 ### 依赖
 * 图标：[cupertino_icons:^0.1.2](https://pub.flutter-io.cn/packages/cupertino_icons) 
