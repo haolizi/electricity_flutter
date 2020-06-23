@@ -78,7 +78,6 @@ class DetailBottom extends StatelessWidget {
             ],
           ),
           
-
           // 加入购物车
           InkWell(
             onTap: () async{

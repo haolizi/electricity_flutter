@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../models/detail_model.dart';
+import '../../../config/color.dart';
 
 class DetailComments extends StatelessWidget {
   final List commentsList;
@@ -22,46 +23,49 @@ class DetailComments extends StatelessWidget {
         children: listWidget
       );
     } else {
-      return Text('暂未有评论');
+      return Center(
+        child: Text('暂未有评论'),
+      );
     }
   }
 
   Widget _listItem(GoodComments model) {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: ScreenUtil().setWidth(750),
-          decoration: BoxDecoration(
-            color:Colors.white,
-            border:Border(
-              bottom: BorderSide(width:1.0, color:Colors.black12)
-            )
-          ),
-          child: Column(
-            children: <Widget>[
-              _userName(model),
-              _commentDetail(model),
-              // _creatTime(model),
-            ],
-          ),
-        ),
-      ],
+    return Container(
+      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+      width: ScreenUtil().setWidth(750),
+      decoration: BoxDecoration(
+        color:Colors.white,
+        border:Border(
+          bottom: BorderSide(width:1.0, color:Colors.black12)
+        )
+      ),
+      
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _userName(model),
+          _commentDetail(model),
+          _creatTime(model),
+        ],
+      ),
     );
   }
 
   Widget _userName(GoodComments model) {
     return Container(
-      padding: EdgeInsets.all(5.0),
       child: Text(
         model.userName,
-        style: TextStyle(fontSize:14),
+        style: TextStyle(
+          color:KColor.themeColor,
+          fontSize:14
+        ),
       ),
     );
   }
 
   Widget _commentDetail(GoodComments model) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      margin: EdgeInsets.only(top:5),
       child: Text(
         model.comments,
         style: TextStyle(fontSize:14),
@@ -70,11 +74,15 @@ class DetailComments extends StatelessWidget {
   }
 
   Widget _creatTime(GoodComments model) {
+    var timeStr = DateTime.fromMillisecondsSinceEpoch(model.discussTime);
     return Container(
-      padding: EdgeInsets.all(5.0),
+      margin: EdgeInsets.only(top:5),
       child: Text(
-        '${model.discussTime}',
-        style: TextStyle(fontSize:14),
+        '${timeStr.toLocal().toString()}',
+        style: TextStyle(
+          color:Colors.black54,
+          fontSize:12
+        ),
       ),
     );
   }
