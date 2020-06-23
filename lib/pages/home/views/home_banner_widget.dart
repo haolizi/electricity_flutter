@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import '../providers/home_provider.dart';
 import '../../../config/routers/router_application.dart';
 import '../../../config/color.dart';
+import '../../../config/image_widget.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({Key key}) : super(key: key);
@@ -19,9 +20,10 @@ class HomeBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeContentProvider>(
       builder: (BuildContext context, value, child) {
+        double screenWidth = MediaQuery.of(context).size.width;
         var bannerDataList = Provider.of<HomeContentProvider>(context, listen: false).bannerList;
         return Container(
-          height: ScreenUtil().setHeight(333),
+          height: 333/750*screenWidth,
           width: ScreenUtil().setWidth(750),
           child: Swiper(
             autoplay: true,
@@ -32,10 +34,12 @@ class HomeBanner extends StatelessWidget {
                 onTap: () {
                   ApplicationRouter.router.navigateTo(context, 'detail?id=${bannerDataList[index]['goodsId']}', transition: TransitionType.native);
                 },
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
+                child: ImageWidget(url: imageUrl, defImagePath:'images/home/banner_placehold.png'),
+                
+                // child:Image.network(
+                //   imageUrl,
+                //   fit: BoxFit.cover,
+                // ),
               );
             },
             pagination: SwiperPagination(

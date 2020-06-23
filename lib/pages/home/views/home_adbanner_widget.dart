@@ -18,7 +18,6 @@ class AdBanner extends StatelessWidget {
         },
         child: Image.network(
           imageUrl,
-          // fit: BoxFit.fill,
         ),
       ),
     );

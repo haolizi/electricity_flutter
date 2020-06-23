@@ -65,6 +65,9 @@ flutter:
     - images/mine/mine_position.png
     - images/mine/mine_service.png
     - images/mine/mine_about.png
+    - images/home/banner_placehold.png
+    - images/home/category_placehold.png
+    - images/home/square_placehold.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

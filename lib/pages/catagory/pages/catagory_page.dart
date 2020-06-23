@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../config/service_method.dart';
+import '../../../config/request/service_method.dart';
 import '../models/category_model.dart';
 import '../models/categody_goods_model.dart';
 import '../providers/category_provider.dart';

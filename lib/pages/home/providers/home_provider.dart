@@ -4,7 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
-import '../../../config/service_method.dart';
+import '../../../config/request/service_method.dart';
 import 'dart:convert';
 
 class HomeContentProvider with ChangeNotifier {

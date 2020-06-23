@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../providers/home_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../config/image_widget.dart';
 
 class HomeCategory extends StatelessWidget {
   const HomeCategory({Key key}) : super(key: key);
@@ -43,7 +44,8 @@ Widget _categoryItem(BuildContext context, item) {
     },
     child: Column(
       children: <Widget>[
-        Image.network(item['image'], width: ScreenUtil().setWidth(95)),
+        ImageWidget(url: item['image'], w:ScreenUtil().setWidth(95)),
+        // Image.network(item['image'], width: ScreenUtil().setWidth(95)),
         Text(
           item['mallCategoryName'],
           style: TextStyle(fontSize: 14),

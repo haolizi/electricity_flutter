@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../providers/home_provider.dart';
 import '../../../config/routers/router_application.dart';
 import '../../../config/color.dart';
+import '../../../config/image_widget.dart';
 
 class GoodsList extends StatelessWidget {
   const GoodsList({Key key}) : super(key: key);
@@ -54,7 +55,8 @@ class GoodsList extends StatelessWidget {
             margin: EdgeInsets.only(bottom:3.0),
             child: Column(
               children: <Widget>[
-                Image.network(val['image'], width: ScreenUtil().setWidth(370)),
+                ImageWidget(url:val['image'], w:ScreenUtil().setWidth(370)),
+                // Image.network(val['image'], width: ScreenUtil().setWidth(370)),
                 Text(
                   val['name'],
                   maxLines:1,

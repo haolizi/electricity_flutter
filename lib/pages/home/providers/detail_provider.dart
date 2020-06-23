@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import '../models/detail_model.dart';
-import '../../../config/service_method.dart';
+import '../../../config/request/service_method.dart';
 import 'dart:convert';
 
 class DetailInfoProvider with ChangeNotifier {
