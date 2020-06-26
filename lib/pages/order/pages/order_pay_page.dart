@@ -22,6 +22,7 @@ class OrderPayPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
+            margin: EdgeInsets.only(bottom:50), 
             color: Colors.white,
             child: ListView(
               children: <Widget>[
