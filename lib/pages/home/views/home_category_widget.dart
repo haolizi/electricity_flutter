@@ -45,7 +45,6 @@ Widget _categoryItem(BuildContext context, item) {
     child: Column(
       children: <Widget>[
         ImageWidget(url: item['image'], w:ScreenUtil().setWidth(95)),
-        // Image.network(item['image'], width: ScreenUtil().setWidth(95)),
         Text(
           item['mallCategoryName'],
           style: TextStyle(fontSize: 14),

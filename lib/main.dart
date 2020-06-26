@@ -34,9 +34,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // 路由
     final router = Router();
-    Routes.configureRoutes(router);
     ApplicationRouter.router = router;
-
+    // 完成路由全局配置和路由定义
+    Routes.configureRoutes(router);
+    
     return new MaterialApp(
       title: '某知名电商',
       onGenerateRoute: ApplicationRouter.router.generator,

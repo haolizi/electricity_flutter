@@ -3,12 +3,13 @@
  * 底部widget
  */
 
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_01/pages/cart/models/cart_model.dart';
 import '../../../config/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import '../../../config/routers/router_application.dart';
 
 class CartBottom extends StatelessWidget {
   const CartBottom({Key key}) : super(key: key);
@@ -112,7 +113,9 @@ class CartBottom extends StatelessWidget {
       padding: EdgeInsets.only(left:10),
       child: InkWell(
         onTap: () {
-
+          if(allGoodsCount > 0) {
+            ApplicationRouter.router.navigateTo(context, 'order/pay', transition:TransitionType.native);
+          }
         },
         child: Container(
           padding: EdgeInsets.all(10.0),

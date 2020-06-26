@@ -56,7 +56,6 @@ class GoodsList extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ImageWidget(url:val['image'], w:ScreenUtil().setWidth(370)),
-                // Image.network(val['image'], width: ScreenUtil().setWidth(370)),
                 Text(
                   val['name'],
                   maxLines:1,
