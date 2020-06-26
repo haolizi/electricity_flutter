@@ -22,7 +22,7 @@ class DetailInfoProvider with ChangeNotifier {
       isSelectRight = true;
     }
     notifyListeners();
-  } 
+  }
 
   // 获取详情信息 
   getGoodsInfo(String id) async {

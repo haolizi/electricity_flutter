@@ -33,7 +33,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 ### 依赖
 |功能|名称|版本|
 |  ----  | ----  | ----  |
-|  图标库  |[flutter_swiper](https://pub.flutter-io.cn/packages/cupertino_icons)|0.1.2|
+|  图标库  |[cupertino_icons](https://pub.flutter-io.cn/packages/cupertino_icons)|0.1.2|
 |  轮播图  |[flutter_swiper](https://pub.flutter-io.cn/packages/flutter_swiper)|1.1.6|
 |  网络请求  |[dio](https://pub.flutter-io.cn/packages/dio)|3.0.0|
 |  适配  |[flutter_screenutil](https://pub.flutter-io.cn/packages/flutter_screenutil)|1.1.0|

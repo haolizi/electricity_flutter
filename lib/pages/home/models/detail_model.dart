@@ -152,7 +152,7 @@ class GoodComments {
   int sCORE;
   String comments;
   String userName;
-  int discussTime;
+  var discussTime;
 
   GoodComments({this.sCORE, this.comments, this.userName, this.discussTime});
 
