@@ -17,7 +17,7 @@ class BottomWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
       width: ScreenUtil().setWidth(750),
-      height: 50,
+      height: ScreenUtil().setHeight(100),
       color: Colors.grey[200],
       child: Row(
         children: <Widget>[
