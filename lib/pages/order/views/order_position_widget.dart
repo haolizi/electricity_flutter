@@ -23,9 +23,10 @@ class PositionWidget extends StatelessWidget {
         child: ListTile(
           leading: Icon(Icons.location_on),
           title: Text(
-            '',
+            '请选择您的位置',
             style: TextStyle(
-              fontSize: 16
+              fontSize: 16,
+              color: Colors.black87
             ),
           ),
           trailing: Image.asset('images/mine/right_arrow.png'),
