@@ -9,11 +9,11 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 
 ### 📸 预览
 
-||||
-|:---:|:---:|:---:|
-|![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|
-![image](images/screen6.png)|![image](images/screen4.png)|![image](images/screen4.jpg)|
-![image](images/screen7.png)|![image](images/screen5.png)||
+|||||
+|:---:|:---:|:---:|:---:|
+|![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|![image](images/screen6.png)|
+|![image](images/screen3.png)|![image](images/screen4.png)|![image](images/screen7.png)|![image](images/screen5.jpg)|
+
 
 ### 目前实现模块
 * [x] 首页列表
