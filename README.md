@@ -1,6 +1,6 @@
 <img src="images/top_img.png" width="100%">
 
-[![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
+[![Dart](https://img.shields.io/badge/Dart-3.12.1-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
 [![Flutter](https://img.shields.io/badge/Flutter-1.17.5-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
 [![VSCode](https://img.shields.io/badge/VSCode-1.46.0-green.svg)](https://code.visualstudio.com/)
 
@@ -50,6 +50,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 
 ### ✨使用教程
 * 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
+* 下载插件：flutter packages get
 * 诊断：flutter doctor
 * 运行：flutter run
 ##### iOS
