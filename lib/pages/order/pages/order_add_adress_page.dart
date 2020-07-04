@@ -91,7 +91,7 @@ class OrderAddAdressPage extends StatelessWidget {
           String name = normalList[0]['text'];
           String contact = normalList[1]['text'];
           String adress = normalList[2]['text'];
-          String fullAdress = normalList[0]['text'];
+          String fullAdress = normalList[3]['text'];
           Provider.of<OrderAdressProvider>(context, listen: false)
               .addAdressToList(name, contact, adress, fullAdress);
           Navigator.pop(context);

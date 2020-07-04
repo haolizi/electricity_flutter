@@ -1,7 +1,7 @@
 <img src="images/top_img.png" width="100%">
 
 [![Dart](https://img.shields.io/badge/Dart-3.11.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
-[![Flutter](https://img.shields.io/badge/Flutter-1.17.3-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
+[![Flutter](https://img.shields.io/badge/Flutter-1.17.5-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
 [![VSCode](https://img.shields.io/badge/VSCode-1.46.0-green.svg)](https://code.visualstudio.com/)
 
 ### 简介
@@ -9,11 +9,11 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 
 ### 📸 预览
 
-|||||
+|电|商|实|战|
 |:---:|:---:|:---:|:---:|
 |![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|![image](images/screen3.png)|
-|![image](images/screen4.png)|![image](images/screen5.png)|![image](images/screen6.png)|![image](images/screen7.jpg)|
-
+|![image](images/screen4.png)|![image](images/screen5.png)|![image](images/screen6.png)|![image](images/screen7.png)|
+|![image](images/screen8.png)|![image](images/screen9.jpg)|![image](images/screen10.jpg)||
 
 ### 目前实现模块
 * [x] 首页列表
@@ -62,11 +62,11 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 ### 我的环境
 ```
 flutter doctor -v
-[✓] Flutter (Channel stable, v1.17.3, on Mac OS X 10.14.4 18E226, locale
+[✓] Flutter (Channel stable, v1.17.5, on Mac OS X 10.14.4 18E226, locale
     zh-Hans-CN)
-    • Flutter version 1.17.3 at
+    • Flutter version 1.17.5 at
       /Users/qianbaiwan04/Desktop/Study/Flutter/flutter
-    • Framework revision b041144f83 (2 weeks ago), 2020-06-04 09:26:11 -0700
+    • Framework revision 8af6b2f038 (4 days ago), 2020-06-30 12:53:55 -0700
     • Engine revision ee76268252
     • Dart version 2.8.4
 
@@ -85,23 +85,27 @@ flutter doctor -v
     • Xcode 11.3.1, Build version 11C504
     • CocoaPods version 1.9.3
 
-[!] Android Studio (version 3.6)
+[✓] Android Studio (version 3.6)
     • Android Studio at /Applications/Android Studio.app/Contents
-    ✗ Flutter plugin not installed; this adds Flutter specific functionality.
-    ✗ Dart plugin not installed; this adds Dart specific functionality.
+    • Flutter plugin version 47.1.1
+    • Dart plugin version 192.8052
     • Java version OpenJDK Runtime Environment (build
       1.8.0_212-release-1586-b4-5784211)
 
-[✓] VS Code (version 1.46.0)
+[✓] VS Code (version 1.46.1)
     • VS Code at /Applications/Visual Studio Code.app/Contents
-    • Flutter extension version 3.11.0
+    • Flutter extension version 3.12.1
 
-[!] Connected device
-    ! No devices available
+[!] Proxy Configuration
+    • HTTP_PROXY is set
+    ! NO_PROXY is not set
 
-! Doctor found issues in 2 categories.
+[✓] Connected device (2 available)
+    • Android SDK built for x86 • emulator-5554                        •
+      android-x86 • Android 10 (API 29) (emulator)
+    • iPhone 11 Pro Max         • CFC51D12-F63F-422C-9E6F-740ED29004FA • ios
+      • com.apple.CoreSimulator.SimRuntime.iOS-13-3 (simulator)
 ```
-两个x是插件未安装，不用理会。
 
 ### ❓遇到问题
 * [启动卡死](ISSUES.md)

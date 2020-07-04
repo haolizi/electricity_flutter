@@ -23,7 +23,7 @@ class PositionWidget extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(10, 12, 10, 12),
           decoration: BoxDecoration(
-              border: Border(
+            border: Border(
               top: BorderSide(width: 1, color: Colors.green),
               bottom: BorderSide(width: 1, color: Colors.green),
             ),
@@ -48,46 +48,39 @@ class PositionWidget extends StatelessWidget {
     return Container(
       width: ScreenUtil().setWidth(620),
       margin: EdgeInsets.only(left: 5),
-      child: model == null?
-      Text(
-        '请选择您的位置',
-        style: TextStyle(fontSize: 15, color: Colors.black87),
-      ):
-      Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                model.name,
-                style: TextStyle(
-                  fontSize: 14
+      child: model == null
+          // 没选地址
+          ? Text(
+              '请选择您的位置',
+              style: TextStyle(fontSize: 15, color: Colors.black87),
+            )
+
+          // 已选地址
+          : Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Text(
+                      model.name,
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      model.contact,
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
                 ),
-              ),
-
-              SizedBox(width: 5),
-
-              Text(
-                model.contact,
-                style: TextStyle(
-                  fontSize: 12
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(top: 5),
+                  child: Text(
+                    model.adress + model.fullAdress,
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ),
-              ),
-            ],
-          ),
-
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(top: 5),
-            child: Text(
-              model.adress + model.fullAdress,
-              style: TextStyle(
-                fontSize: 13
-              ),
+              ],
             ),
-          ),
-          
-        ],
-      )
     );
   }
 }
