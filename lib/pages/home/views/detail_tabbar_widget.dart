@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../providers/detail_provider.dart';
 
-class DetailTabbar extends StatelessWidget {
-  const DetailTabbar({Key key}) : super(key: key);
+class DetailTabbarWidget extends StatelessWidget {
+  const DetailTabbarWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

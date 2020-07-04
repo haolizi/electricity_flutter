@@ -9,10 +9,10 @@ import 'package:fluro/fluro.dart';
 import 'home_adbanner_widget.dart';
 import '../../../config/routers/router_application.dart';
 
-class FloorItem extends StatelessWidget {
+class FloorItemWidget extends StatelessWidget {
   final String topImage;
   final List floorGoodsList;
-  const FloorItem({Key key, this.topImage, this.floorGoodsList}) : super(key: key);
+  const FloorItemWidget({Key key, this.topImage, this.floorGoodsList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class FloorItem extends StatelessWidget {
       padding: EdgeInsets.only(top: 5),
       child: Column(
         children: <Widget>[
-          AdBanner(imageUrl: topImage),
+          AdBannerWidget(imageUrl: topImage),
           _firstRow(context),
           _otherGoods(context)
         ],

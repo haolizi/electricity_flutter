@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../providers/detail_provider.dart';
 import '../../../config/color.dart';
 
-class DetailTopInfo extends StatelessWidget {
-  const DetailTopInfo({Key key}) : super(key: key);
+class DetailTopInfoWidget extends StatelessWidget {
+  const DetailTopInfoWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

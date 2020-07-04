@@ -12,8 +12,8 @@ import '../../../config/routers/router_application.dart';
 import '../../../config/color.dart';
 import '../../../config/image_widget.dart';
 
-class GoodsList extends StatelessWidget {
-  const GoodsList({Key key}) : super(key: key);
+class GoodsListWidget extends StatelessWidget {
+  const GoodsListWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,6 @@ class GoodsList extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ImageWidget(url:val['image'], w:ScreenUtil().setWidth(370)),
-                // Image.network(val['image'], width: ScreenUtil().setWidth(370)),
                 Text(
                   val['name'],
                   maxLines:1,

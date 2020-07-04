@@ -13,8 +13,8 @@ class CartProvider with ChangeNotifier {
   // 添加商品信息到缓存区
   addGoodsToCart(goodsId, goodsName, count, price, image) async {
     SharedPreferences pres = await SharedPreferences.getInstance();
-    String cartString = pres.getString('cartInfo');
-    var temp = cartString == null?[]:json.decode(cartString.toString());
+    String cartStr = pres.getString('cartInfo');
+    var temp = cartStr == null?[]:json.decode(cartStr.toString());
     List<Map> tempList = (temp as List).cast();
     bool isExist = false;
     int ival = 0;

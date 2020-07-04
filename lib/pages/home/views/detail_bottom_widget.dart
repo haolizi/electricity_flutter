@@ -3,6 +3,7 @@
  * 底部操作按钮
  */
 
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_01/config/color.dart';
@@ -12,9 +13,10 @@ import '../../cart/providers/cart_provider.dart';
 import '../providers/detail_provider.dart';
 import 'package:toast/toast.dart';
 import '../../../config/routers/tab_index_provider.dart';
+import '../../../config/routers/router_application.dart';
 
-class DetailBottom extends StatelessWidget {
-  const DetailBottom({Key key}) : super(key: key);
+class DetailBottomWidget extends StatelessWidget {
+  const DetailBottomWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class DetailBottom extends StatelessWidget {
     var count = 1;
     var price = goodsInfo.presentPrice;
     var image = goodsInfo.image1;
+    int goodsCount;
 
     return Container(
       width: ScreenUtil().setWidth(750),
@@ -52,7 +55,7 @@ class DetailBottom extends StatelessWidget {
 
               Consumer<CartProvider>(
                 builder: (BuildContext context, value, child) {
-                  int goodsCount = Provider.of<CartProvider>(context, listen: false).allGoodsCount;
+                  goodsCount = Provider.of<CartProvider>(context, listen: false).allGoodsCount;
                   return goodsCount>0?Positioned(
                     top: 0,
                     right: 5,
@@ -101,7 +104,9 @@ class DetailBottom extends StatelessWidget {
           // 立即购买
           InkWell(
             onTap: () async {
-              // await Provider.of<CartProvider>(context, listen: false).removeAllGoods();
+              if(goodsCount > 0) {
+                ApplicationRouter.router.navigateTo(context, 'order/pay', transition:TransitionType.native);
+              }
             },
             child: Container(
               color: Colors.red,

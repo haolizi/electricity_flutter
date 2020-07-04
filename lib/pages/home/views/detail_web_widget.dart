@@ -4,8 +4,8 @@ import '../providers/detail_provider.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'detail_comments_widget.dart';
 
-class DetailWeb extends StatelessWidget {
-  const DetailWeb({Key key}) : super(key: key);
+class DetailWebWidget extends StatelessWidget {
+  const DetailWebWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class DetailWeb extends StatelessWidget {
             );
           } else {
             return Container(
-              child: DetailComments(commentsList:commentsList)
+              child: DetailCommentsWidget(commentsList:commentsList)
             );
           }
         } else {

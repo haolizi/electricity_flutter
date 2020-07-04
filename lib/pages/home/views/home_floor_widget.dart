@@ -9,8 +9,8 @@ import '../providers/home_provider.dart';
 import 'home_floor_item_widget.dart';
 
 
-class FloorInfo extends StatelessWidget {
-  const FloorInfo({Key key}) : super(key: key);
+class FloorInfoWidget extends StatelessWidget {
+  const FloorInfoWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class FloorInfo extends StatelessWidget {
           padding: EdgeInsets.only(top: 5),
           child: Column(
             children: <Widget>[
-              FloorItem(floorGoodsList: floor1List, topImage: floor1TopImage),
-              FloorItem(floorGoodsList: floor2List, topImage: floor2TopImage),
-              FloorItem(floorGoodsList: floor3List, topImage: floor3TopImage),
+              FloorItemWidget(floorGoodsList: floor1List, topImage: floor1TopImage),
+              FloorItemWidget(floorGoodsList: floor2List, topImage: floor2TopImage),
+              FloorItemWidget(floorGoodsList: floor3List, topImage: floor3TopImage),
             ],
           ),
         );

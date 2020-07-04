@@ -10,8 +10,8 @@ import 'package:provider/provider.dart';
 import '../providers/home_provider.dart';
 import '../../../config/routers/router_application.dart';
 
-class RecommendInfo extends StatelessWidget {
-  const RecommendInfo({Key key}) : super(key: key);
+class RecommendInfoWidget extends StatelessWidget {
+  const RecommendInfoWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

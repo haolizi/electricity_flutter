@@ -10,9 +10,9 @@ import 'home_adbanner_widget.dart';
 import 'package:flutter_01/pages/home/providers/home_provider.dart';
 import 'package:provider/provider.dart';
 
-class LeaderInfo extends StatelessWidget {
+class LeaderInfoWidget extends StatelessWidget {
   final dataInfo;
-  const LeaderInfo({Key key, this.dataInfo}) : super(key: key);
+  const LeaderInfoWidget({Key key, this.dataInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class LeaderInfo extends StatelessWidget {
         String leaderInfoContact = Provider.of<HomeContentProvider>(context, listen: false).leaderInfoContact;
         return Column(
           children: <Widget>[
-            AdBanner(imageUrl:adBannerImage),
+            AdBannerWidget(imageUrl:adBannerImage),
             _leaderInfo(leaderInfoBgImage, leaderInfoContact)
           ],
         );

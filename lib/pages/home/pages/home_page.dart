@@ -43,12 +43,12 @@ class _HomePageState extends State<HomePage> {
               ),
               child: ListView(
                 children: <Widget>[
-                  HomeBanner(),    // banner
-                  HomeCategory(),  // 小分类
-                  LeaderInfo(),    // 店长信息
-                  RecommendInfo(), // 推荐列表
-                  FloorInfo(),     // 楼层
-                  GoodsList(),     // 商品列表
+                  HomeBannerWidget(),    // banner
+                  HomeCategoryWidget(),  // 小分类
+                  LeaderInfoWidget(),    // 店长信息
+                  RecommendInfoWidget(), // 推荐列表
+                  FloorInfoWidget(),     // 楼层
+                  GoodsListWidget(),     // 商品列表
                 ],
               ),
 

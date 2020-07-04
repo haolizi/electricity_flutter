@@ -5,9 +5,9 @@
 
 import 'package:flutter/material.dart';
 
-class AdBanner extends StatelessWidget {
+class AdBannerWidget extends StatelessWidget {
   final String imageUrl;
-  const AdBanner({Key key, this.imageUrl}) : super(key: key);
+  const AdBannerWidget({Key key, this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -13,8 +13,8 @@ import '../../../config/routers/router_application.dart';
 import '../../../config/color.dart';
 import '../../../config/image_widget.dart';
 
-class HomeBanner extends StatelessWidget {
-  const HomeBanner({Key key}) : super(key: key);
+class HomeBannerWidget extends StatelessWidget {
+  const HomeBannerWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

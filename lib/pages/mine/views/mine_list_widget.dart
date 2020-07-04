@@ -39,8 +39,9 @@ class ListTitleWidget extends StatelessWidget {
         leading: Image.asset(icon),
         title: Text(
           title,
-          style: TextStyle(fontSize: ScreenUtil().setSp(29)
-        ),
+          style: TextStyle(
+            fontSize: ScreenUtil().setSp(29)
+          ),
         ),
         trailing: Image.asset('images/mine/right_arrow.png'),
       ),

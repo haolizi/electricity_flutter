@@ -9,9 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../models/detail_model.dart';
 import '../../../config/color.dart';
 
-class DetailComments extends StatelessWidget {
+class DetailCommentsWidget extends StatelessWidget {
   final List commentsList;
-  const DetailComments({Key key, this.commentsList}) : super(key: key);
+  const DetailCommentsWidget({Key key, this.commentsList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

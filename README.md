@@ -9,10 +9,11 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 
 ### 📸 预览
 
-||||
-|:---:|:---:|:---:|
-|![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|
-![image](images/screen3.png)|![image](images/screen4.png)|![image](images/screen5.jpg)|
+|||||
+|:---:|:---:|:---:|:---:|
+|![image](images/screen.gif)|![image](images/screen1.png)|![image](images/screen2.png)|![image](images/screen3.png)|
+|![image](images/screen4.png)|![image](images/screen5.png)|![image](images/screen6.png)|![image](images/screen7.jpg)|
+
 
 ### 目前实现模块
 * [x] 首页列表
@@ -21,19 +22,21 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 * [x] 购物车页面
 * [x] 个人中心
 * [ ] 注册登录
-* [ ] 订单模块
-* [ ] 支付
+* [x] 订单模块
+* [ ] 启动页广告
 * [ ] 推送
 * [ ] 定位
 
 ### 更新记录
+* 2020-7-04 完善订单支付页面
+* 2020-6-27 优化评论列表，添加订单支付页面
 * 2020-6-19 优化购物车，添加个人中心页面
 * 2020-6-18 第一次提交
 
 ### 依赖
 |功能|名称|版本|
 |  ----  | ----  | ----  |
-|  图标库  |[flutter_swiper](https://pub.flutter-io.cn/packages/cupertino_icons)|0.1.2|
+|  图标库  |[cupertino_icons](https://pub.flutter-io.cn/packages/cupertino_icons)|0.1.2|
 |  轮播图  |[flutter_swiper](https://pub.flutter-io.cn/packages/flutter_swiper)|1.1.6|
 |  网络请求  |[dio](https://pub.flutter-io.cn/packages/dio)|3.0.0|
 |  适配  |[flutter_screenutil](https://pub.flutter-io.cn/packages/flutter_screenutil)|1.1.0|

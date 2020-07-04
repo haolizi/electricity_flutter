@@ -8,21 +8,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../providers/home_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../config/image_widget.dart';
+import '../../../config/routers/tab_index_provider.dart';
 
-class HomeCategory extends StatelessWidget {
-  const HomeCategory({Key key}) : super(key: key);
+class HomeCategoryWidget extends StatelessWidget {
+  const HomeCategoryWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double height = 0.0;
     List categoryList =
         Provider.of<HomeContentProvider>(context, listen: false).categoryList;
-    if (categoryList.length > 10) {
-      categoryList.removeRange(10, categoryList.length);
-    }
+    height = ((categoryList.length - 1) ~/ 5 + 1) * 80.toDouble();
+
     return Consumer<HomeContentProvider>(
         builder: (BuildContext context, value, child) {
       return Container(
-        height: 165,
+        height: ScreenUtil().setWidth(2 * height - 30),
         padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
         child: GridView.count(
           physics: const NeverScrollableScrollPhysics(),
@@ -40,12 +41,12 @@ class HomeCategory extends StatelessWidget {
 Widget _categoryItem(BuildContext context, item) {
   return InkWell(
     onTap: () {
-      // ApplicationRouter.router.navigateTo(context, 'detail?id=${item['mallCategoryId']}', transition: TransitionType.native);
+      Provider.of<CurrentIndexProvider>(context, listen: false)
+          .changeTabIndex(1);
     },
     child: Column(
       children: <Widget>[
         ImageWidget(url: item['image'], w: ScreenUtil().setWidth(95)),
-        // Image.network(item['image'], width: ScreenUtil().setWidth(95)),
         Text(
           item['mallCategoryName'],
           style: TextStyle(fontSize: 14),

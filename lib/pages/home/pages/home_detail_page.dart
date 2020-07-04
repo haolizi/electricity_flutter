@@ -3,7 +3,6 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../providers/detail_provider.dart';
 import '../views/detail_top_info_widget.dart';
@@ -33,17 +32,17 @@ class HomeDetailPage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom:45), 
                   child: ListView(
                     children: <Widget>[
-                      DetailTopInfo(),       // 头部图片、标题、价格、说明信息
-                      DetailInstructions(),  // 说明
-                      DetailTabbar(),        // segment
-                      DetailWeb(),           // 商品详情及评论
+                      DetailTopInfoWidget(),       // 头部图片、标题、价格、说明信息
+                      DetailInstructions(),        // 说明
+                      DetailTabbarWidget(),        // segment
+                      DetailWebWidget(),           // 商品详情及评论
                     ],
                   ),
                 ),
                 Positioned(
                   bottom: 0,
                   left: 0,
-                  child: DetailBottom()
+                  child: DetailBottomWidget()
                 ),
               ],
             );
@@ -64,8 +63,4 @@ class HomeDetailPage extends StatelessWidget {
     await Provider.of<DetailInfoProvider>(context, listen: false).getGoodsInfo(goodsId);
     return '加载完成';
   }
-}
-
-Widget TabbarDetail() {
-  return Text('1111111111');
 }
