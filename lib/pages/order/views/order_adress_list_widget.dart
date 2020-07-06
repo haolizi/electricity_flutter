@@ -35,11 +35,12 @@ class AdressListWidget extends StatelessWidget {
       BuildContext context, AdressInfoModel model, int index) {
     return InkWell(
       onTap: () {
-        Provider.of<OrderAdressProvider>(context, listen: false).selectModel =
-            model;
+        Provider.of<OrderAdressProvider>(context, listen: false)
+            .selectAdressInfo(model);
         Navigator.pop(context);
       },
       child: Container(
+        width: ScreenUtil().setWidth(750),
         color: Colors.white,
         margin: EdgeInsets.only(top: 2),
         padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
@@ -49,6 +50,8 @@ class AdressListWidget extends StatelessWidget {
 
             // 删除按钮
             Container(
+              alignment: Alignment.centerRight,
+              width: ScreenUtil().setWidth(95),
               decoration: BoxDecoration(
                   border: Border(
                 left: BorderSide(width: 1, color: Colors.black12),
@@ -72,7 +75,7 @@ class AdressListWidget extends StatelessWidget {
 
   Widget _infoWidget(AdressInfoModel model) {
     return Container(
-      width: ScreenUtil().setWidth(635),
+      width: ScreenUtil().setWidth(630),
       child: Column(
         children: <Widget>[
           // 姓名、手机号

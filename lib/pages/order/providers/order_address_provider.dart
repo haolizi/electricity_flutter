@@ -44,7 +44,7 @@ class OrderAdressProvider with ChangeNotifier {
     adressString = prefs.getString('adressInfo');
     List<Map> tempList = (json.decode(adressString.toString()) as List).cast();
     tempList.removeAt(index);
-    if(tempList.length <= 0) {
+    if (tempList.length <= 0) {
       selectModel = null;
     }
     adressString = json.encode(tempList).toString();
@@ -67,6 +67,13 @@ class OrderAdressProvider with ChangeNotifier {
         infoList.add(AdressInfoModel.fromJson(element));
       });
     }
+    notifyListeners();
+  }
+
+  // 选择地址
+  selectAdressInfo(AdressInfoModel model) async {
+    selectModel = model;
+
     notifyListeners();
   }
 }

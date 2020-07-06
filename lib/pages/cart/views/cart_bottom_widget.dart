@@ -17,12 +17,14 @@ class CartBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
-      color:Colors.white,
-      child: Consumer<CartProvider>(
-        builder: (BuildContext context, child, value) {
-          double allPrice = Provider.of<CartProvider>(context, listen: false).allPrice;
-          int allGoodsCount = Provider.of<CartProvider>(context, listen: false).allGoodsCount;
+        padding: EdgeInsets.all(5.0),
+        color: Colors.white,
+        child: Consumer<CartProvider>(
+            builder: (BuildContext context, child, value) {
+          double allPrice =
+              Provider.of<CartProvider>(context, listen: false).allPrice;
+          int allGoodsCount =
+              Provider.of<CartProvider>(context, listen: false).allGoodsCount;
           return Row(
             children: <Widget>[
               _selectAllBtn(context),
@@ -30,25 +32,22 @@ class CartBottom extends StatelessWidget {
               _buyBtn(context, allGoodsCount),
             ],
           );
-        }
-      )
-      
-    );
+        }));
   }
 
   Widget _selectAllBtn(context) {
-    bool isAllCheck = Provider.of<CartProvider>(context, listen: false).isAllCheck;
+    bool isAllCheck =
+        Provider.of<CartProvider>(context, listen: false).isAllCheck;
     return Container(
       child: Row(
         children: <Widget>[
           Checkbox(
-            value: isAllCheck, 
-            activeColor: KColor.themeColor,
-            onChanged: (bool isSelect) {
-              Provider.of<CartProvider>(context, listen: false).changeAllCheckState(isSelect);
-            }
-          ),
-
+              value: isAllCheck,
+              activeColor: KColor.themeColor,
+              onChanged: (bool isSelect) {
+                Provider.of<CartProvider>(context, listen: false)
+                    .changeAllCheckState(isSelect);
+              }),
           Text('全选')
         ],
       ),
@@ -70,7 +69,7 @@ class CartBottom extends StatelessWidget {
                 width: ScreenUtil().setWidth(280),
                 child: Text(
                   '合计：',
-                  style: TextStyle(fontSize:ScreenUtil().setSp(34)),
+                  style: TextStyle(fontSize: ScreenUtil().setSp(34)),
                 ),
               ),
 
@@ -81,9 +80,7 @@ class CartBottom extends StatelessWidget {
                 child: Text(
                   '￥${allPrice}',
                   style: TextStyle(
-                    color: Colors.red,
-                    fontSize:ScreenUtil().setSp(34)
-                  ),
+                      color: Colors.red, fontSize: ScreenUtil().setSp(34)),
                 ),
               ),
             ],
@@ -95,10 +92,8 @@ class CartBottom extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Text(
               '满10元免配送费，预约免费配送',
-              style:TextStyle(
-                color: Colors.black38,
-                fontSize: ScreenUtil().setSp(22)
-              ),
+              style: TextStyle(
+                  color: Colors.black38, fontSize: ScreenUtil().setSp(22)),
             ),
           ),
         ],
@@ -110,25 +105,25 @@ class CartBottom extends StatelessWidget {
   Widget _buyBtn(context, allGoodsCount) {
     return Container(
       width: ScreenUtil().setWidth(160),
-      padding: EdgeInsets.only(left:10),
+      padding: EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
-          if(allGoodsCount > 0) {
-            ApplicationRouter.router.navigateTo(context, 'order/pay', transition:TransitionType.native);
+          if (allGoodsCount > 0) {
+            ApplicationRouter.router.navigateTo(context, 'order/pay',
+                transition: TransitionType.native);
           }
         },
         child: Container(
           padding: EdgeInsets.all(10.0),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color:Colors.red,
+            color: KColor.themeColor,
             borderRadius: BorderRadius.circular(3.0),
           ),
           child: Text(
             '结算(${allGoodsCount})',
             style: TextStyle(
-              color:Colors.white,
-
+              color: Colors.white,
             ),
           ),
         ),

@@ -11,8 +11,13 @@ class PriceListWidget extends StatelessWidget {
   const PriceListWidget({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    double allPrice = Provider.of<CartProvider>(context, listen: false).allPrice;
-    List list = [{'title':'商品金额','detail':allPrice.toStringAsFixed(2)},{'title':'运费','detail':'0.00'},{'title':'实付总额','detail':allPrice.toStringAsFixed(2)}];
+    double allPrice =
+        Provider.of<CartProvider>(context, listen: false).allPrice;
+    List list = [
+      {'title': '商品金额', 'detail': allPrice.toStringAsFixed(2)},
+      {'title': '运费', 'detail': '0.00'},
+      {'title': '实付总额', 'detail': allPrice.toStringAsFixed(2)}
+    ];
     return Container(
       height: 123,
       color: Colors.white,
@@ -31,20 +36,16 @@ class PriceListWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
       decoration: BoxDecoration(
-        border:Border(
-          bottom:BorderSide(width:1, color:Colors.black12),
+        border: Border(
+          bottom: BorderSide(width: 1, color: Colors.black12),
         ),
       ),
       child: Row(
         children: <Widget>[
-          Container(
-            width: ScreenUtil().setWidth(550),
-            child: Text(title)
-          ),
-          
+          Container(width: ScreenUtil().setWidth(500), child: Text(title)),
           Container(
             alignment: Alignment.centerRight,
-            width: ScreenUtil().setWidth(160),
+            width: ScreenUtil().setWidth(200),
             child: Text(price),
           )
         ],

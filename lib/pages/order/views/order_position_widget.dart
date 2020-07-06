@@ -18,10 +18,10 @@ class PositionWidget extends StatelessWidget {
     return Consumer<OrderAdressProvider>(
         builder: (BuildContext context, child, value) {
       AdressInfoModel model =
-          Provider.of<OrderAdressProvider>(context).selectModel;
+          Provider.of<OrderAdressProvider>(context, listen: false).selectModel;
       return InkWell(
         child: Container(
-          padding: EdgeInsets.fromLTRB(10, 12, 10, 12),
+          padding: EdgeInsets.fromLTRB(10, 12, 0, 12),
           decoration: BoxDecoration(
             border: Border(
               top: BorderSide(width: 1, color: Colors.green),
@@ -32,7 +32,10 @@ class PositionWidget extends StatelessWidget {
             children: <Widget>[
               Icon(Icons.location_on),
               _adressInfoWidget(model),
-              Image.asset('images/mine/right_arrow.png'),
+              Container(
+                width: ScreenUtil().setWidth(40),
+                child: Image.asset('images/mine/right_arrow.png'),
+              ),
             ],
           ),
         ),
@@ -46,7 +49,7 @@ class PositionWidget extends StatelessWidget {
 
   Widget _adressInfoWidget(AdressInfoModel model) {
     return Container(
-      width: ScreenUtil().setWidth(620),
+      width: ScreenUtil().setWidth(625),
       margin: EdgeInsets.only(left: 5),
       child: model == null
           // 没选地址

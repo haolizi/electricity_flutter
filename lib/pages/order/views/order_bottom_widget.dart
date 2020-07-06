@@ -21,31 +21,42 @@ class BottomWidget extends StatelessWidget {
       width: ScreenUtil().setWidth(750),
       height: ScreenUtil().setHeight(100),
       color: Colors.grey[200],
-      child: Row(
+      child: Stack(
         children: <Widget>[
-          Text('合计：'),
-          Container(
-            width: ScreenUtil().setWidth(475),
-            child: Text(
-              '￥${allPrice.toStringAsFixed(2)}',
-              style: TextStyle(color: KColor.themeColor),
+          Align(
+            child: Row(
+              children: <Widget>[
+                Text('合计：'),
+                Text(
+                  '￥${allPrice.toStringAsFixed(2)}',
+                  style: TextStyle(color: KColor.themeColor),
+                ),
+              ],
             ),
           ),
-          Container(
-            child: FlatButton(
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              alignment: Alignment.center,
+              width: ScreenUtil().setWidth(130),
+              height: ScreenUtil().setHeight(70),
+              decoration: BoxDecoration(
                 color: KColor.themeColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.0)),
+                borderRadius: BorderRadius.circular(3.0),
+              ),
+              child: InkWell(
+                onTap: () async {
+                  int type = await _showModalBottomSheet(context);
+                  print('-------type"${type}');
+                },
                 child: Text(
                   '去付款',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () async {
-                  int type = await _showModalBottomSheet(context);
-                  print('-------type"${type}');
-                }),
+              ),
+            ),
           ),
         ],
       ),
@@ -68,40 +79,44 @@ class BottomWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(context);
-                        Toast.show("微信支付", context, duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
+                        Toast.show("微信支付", context,
+                            duration: Toast.LENGTH_SHORT,
+                            gravity: Toast.CENTER);
                       },
                       child: Container(
                         margin: EdgeInsets.only(top: 25),
                         alignment: Alignment.centerRight,
                         padding: EdgeInsets.only(right: 30),
-                        child: Image.asset('images/order/WX.png', width: 60),
-                      )
+                        child: Image.asset('images/order/WX.png'),
+                      ),
                     ),
                   ),
-                  
                   Expanded(
                     flex: 1,
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(context);
-                        Toast.show("QQ支付", context, duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
+                        Toast.show("QQ支付", context,
+                            duration: Toast.LENGTH_SHORT,
+                            gravity: Toast.CENTER);
                       },
                       child: Container(
                         margin: EdgeInsets.only(top: 25),
                         alignment: Alignment.centerLeft,
                         padding: EdgeInsets.only(left: 30),
-                        child: Image.asset('images/order/QQ.png', width: 55),
-                      )
+                        child: Image.asset('images/order/QQ.png'),
+                      ),
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 25),
               IconButton(
-                  icon: Icon(Icons.close),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  })
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
             ],
           ),
         );
