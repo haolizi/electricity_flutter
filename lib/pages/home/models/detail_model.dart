@@ -12,7 +12,9 @@ class DetailModel {
   DetailModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     message = json['message'];
-    data = json['data'] != null ? new DetailGoodsData.fromJson(json['data']) : null;
+    data = json['data'] != null
+        ? new DetailGoodsData.fromJson(json['data'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -194,4 +196,3 @@ class AdvertesPicture {
     return data;
   }
 }
-

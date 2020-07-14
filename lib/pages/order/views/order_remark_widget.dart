@@ -16,24 +16,19 @@ class RemarkWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            width: ScreenUtil().setWidth(60),
             alignment: Alignment.topLeft,
             child: Text(
               '备注：',
               style: TextStyle(color: Colors.black54),
             ),
           ),
-          Container(
-            width: ScreenUtil().setWidth(640),
-            margin: EdgeInsets.only(left: 5),
+
+          // 备注输入框
+          Expanded(
             child: TextField(
               maxLines: 2,
               decoration: InputDecoration(
                 hintText: '如服装类可以写明尺寸、型号、颜色等',
-                labelStyle: TextStyle(
-                  color: Colors.black12,
-                  fontSize: ScreenUtil().setSp(12),
-                ),
                 border: OutlineInputBorder(),
               ),
             ),

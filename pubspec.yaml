@@ -70,6 +70,7 @@ flutter:
     - images/home/square_placehold.png
     - images/order/WX.png
     - images/order/QQ.png
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

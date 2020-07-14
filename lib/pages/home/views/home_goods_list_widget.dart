@@ -18,75 +18,74 @@ class GoodsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeListProvider>(
-      builder: (BuildContext context, value, child) {
-        return Container(
-          width: ScreenUtil().setWidth(750),
-          child: Column(
-            children: <Widget>[
-              _hotTitle(),
-              _wrapList(context)
-            ],
-          ),
-        );
-      }
-    );
+        builder: (BuildContext context, value, child) {
+      return Container(
+        width: ScreenUtil().setWidth(750),
+        child: Column(
+          children: <Widget>[_hotTitle(), _wrapList(context)],
+        ),
+      );
+    });
   }
 
   Widget _hotTitle() {
     return Container(
-     padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
       alignment: Alignment.center,
       child: Text('---推荐产品---'),
     );
   }
 
+  // 商品列表
   Widget _wrapList(BuildContext context) {
-    List<Map> goodsList = Provider.of<HomeListProvider>(context, listen: false).goodsList;
-    if(goodsList.length > 0) {
+    List<Map> goodsList =
+        Provider.of<HomeListProvider>(context, listen: false).goodsList;
+    if (goodsList.length > 0) {
       List<Widget> listWidget = goodsList.map((val) {
-        return InkWell(
-          onTap: () {
-            ApplicationRouter.router.navigateTo(context, 'detail?id=${val['goodsId']}', transition:TransitionType.native);
-          },
-          child: Container(
-            width: ScreenUtil().setWidth(372),
-            color: Colors.white,
-            padding: EdgeInsets.all(5.0),
-            margin: EdgeInsets.only(bottom:3.0),
-            child: Column(
-              children: <Widget>[
-                ImageWidget(url:val['image'], w:ScreenUtil().setWidth(370)),
-                Text(
-                  val['name'],
-                  maxLines:1,
-                  overflow:TextOverflow.ellipsis,
-                  style: TextStyle(color:KColor.themeColor),
-                ),
+        return _goodsItemWidget(context, val);
+      }).toList();
 
-                Row(
-                  children: <Widget>[
-                    Text("￥${val['mallPrice']}"),
-                    Text(
-                      "￥${val['price']}",
-                      style: TextStyle(
-                        color:Colors.black26,
-                        decoration:TextDecoration.lineThrough
-                      ),
-                    ),
-                  ],
+      return Wrap(spacing: 2, children: listWidget);
+    } else {
+      return Text('');
+    }
+  }
+
+  Widget _goodsItemWidget(BuildContext context, Map item) {
+    return InkWell(
+      onTap: () {
+        ApplicationRouter.router.navigateTo(
+            context, 'detail?id=${item['goodsId']}',
+            transition: TransitionType.native);
+      },
+      child: Container(
+        width: ScreenUtil().setWidth(372),
+        color: Colors.white,
+        padding: EdgeInsets.all(5.0),
+        margin: EdgeInsets.only(bottom: 3.0),
+        child: Column(
+          children: <Widget>[
+            ImageWidget(url: item['image'], w: ScreenUtil().setWidth(370)),
+            Text(
+              item['name'],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: KColor.themeColor),
+            ),
+            Row(
+              children: <Widget>[
+                Text("￥${item['mallPrice']}"),
+                Text(
+                  "￥${item['price']}",
+                  style: TextStyle(
+                      color: Colors.black26,
+                      decoration: TextDecoration.lineThrough),
                 ),
               ],
             ),
-          ),
-        );
-      }).toList();
-      return Wrap (
-        spacing: 2,
-        children: listWidget
-      );
-    }
-    else {
-      return Text('');
-    }
-  }  
+          ],
+        ),
+      ),
+    );
+  }
 }

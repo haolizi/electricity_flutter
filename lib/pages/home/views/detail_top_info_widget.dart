@@ -17,8 +17,11 @@ class DetailTopInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DetailInfoProvider>(
       builder: (BuildContext context, goodsData, child) {
-        var goodsInfo = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodInfo;
-        if(goodsInfo != null) {
+        var goodsInfo = Provider.of<DetailInfoProvider>(context, listen: false)
+            .detailModel
+            .data
+            .goodInfo;
+        if (goodsInfo != null) {
           return Container(
             color: Colors.white,
             child: Column(
@@ -48,10 +51,10 @@ class DetailTopInfoWidget extends StatelessWidget {
     return Container(
       width: ScreenUtil().setWidth(750),
       padding: EdgeInsets.only(left: 14),
-      margin: EdgeInsets.only(top:10),
+      margin: EdgeInsets.only(top: 10),
       child: Text(
         name,
-        style: TextStyle(fontSize:16),
+        style: TextStyle(fontSize: 16),
       ),
     );
   }
@@ -60,15 +63,15 @@ class DetailTopInfoWidget extends StatelessWidget {
     return Container(
       width: ScreenUtil().setWidth(750),
       padding: EdgeInsets.only(left: 14),
-      margin: EdgeInsets.only(top:10),
+      margin: EdgeInsets.only(top: 10),
       child: Text(
         '编号：${num}',
-        style: TextStyle(color:Colors.black38),
+        style: TextStyle(color: Colors.black38),
       ),
     );
   }
 
-  Widget _goodsPrice (price, originalPrice) {
+  Widget _goodsPrice(price, originalPrice) {
     return Container(
       width: ScreenUtil().setWidth(750),
       padding: EdgeInsets.fromLTRB(14, 10, 14, 10),
@@ -76,15 +79,12 @@ class DetailTopInfoWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             "￥${price}",
-            style: TextStyle(fontSize:18, color:Colors.red),
+            style: TextStyle(fontSize: 18, color: Colors.red),
           ),
-          
           Text(
             "￥${originalPrice}",
             style: TextStyle(
-              color:Colors.black26,
-              decoration:TextDecoration.lineThrough
-            ),
+                color: Colors.black26, decoration: TextDecoration.lineThrough),
           ),
         ],
       ),
@@ -104,7 +104,7 @@ class DetailInstructions extends StatelessWidget {
       color: Colors.white,
       child: Text(
         '说明：>急速送达>正品保证',
-        style: TextStyle(color:KColor.themeColor),
+        style: TextStyle(color: KColor.themeColor),
       ),
     );
   }

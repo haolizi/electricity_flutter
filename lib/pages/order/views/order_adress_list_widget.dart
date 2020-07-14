@@ -21,10 +21,11 @@ class AdressListWidget extends StatelessWidget {
           Provider.of<OrderAdressProvider>(context, listen: false).infoList;
       if (adressList.length > 0) {
         return ListView.builder(
-            itemCount: adressList.length,
-            itemBuilder: (context, index) {
-              return _listItemWidget(context, adressList[index], index);
-            });
+          itemCount: adressList.length,
+          itemBuilder: (context, index) {
+            return _listItemWidget(context, adressList[index], index);
+          },
+        );
       } else {
         return NoAdressWidget();
       }
