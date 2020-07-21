@@ -16,20 +16,20 @@ class LeaderInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Consumer<HomeContentProvider>(
-      builder: (BuildContext context, value, child) {
-        String adBannerImage = Provider.of<HomeContentProvider>(context, listen: false).adBannerImage;
-        String leaderInfoBgImage = Provider.of<HomeContentProvider>(context, listen: false).leaderInfoBgImage;
-        String leaderInfoContact = Provider.of<HomeContentProvider>(context, listen: false).leaderInfoContact;
-        return Column(
-          children: <Widget>[
-            AdBannerWidget(imageUrl:adBannerImage),
-            _leaderInfo(leaderInfoBgImage, leaderInfoContact)
-          ],
-        );
-      }
-    );
+        builder: (BuildContext context, value, child) {
+      HomeContentProvider homeProvider =
+          Provider.of<HomeContentProvider>(context, listen: false);
+      String adBannerImage = homeProvider.adBannerImage;
+      String leaderInfoBgImage = homeProvider.leaderInfoBgImage;
+      String leaderInfoContact = homeProvider.leaderInfoContact;
+      return Column(
+        children: <Widget>[
+          AdBannerWidget(imageUrl: adBannerImage),
+          _leaderInfo(leaderInfoBgImage, leaderInfoContact)
+        ],
+      );
+    });
   }
 
   // 店长联系电话及背景图片
@@ -46,7 +46,7 @@ class LeaderInfoWidget extends StatelessWidget {
           fit: BoxFit.fill,
         ),
       ),
-    ); 
+    );
   }
 
   void _leaderInfoTap(String contactPhone) async {

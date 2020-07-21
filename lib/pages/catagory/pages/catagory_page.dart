@@ -58,10 +58,11 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
           child: Container(
             width: ScreenUtil().setWidth(570),
             child: ListView.builder(
-                itemCount: goodsData.goodsList.length,
-                itemBuilder: (context, index) {
-                  return _listItem(goodsData.goodsList, index);
-                }),
+              itemCount: goodsData.goodsList.length,
+              itemBuilder: (context, index) {
+                return _listItem(goodsData.goodsList, index);
+              },
+            ),
           ),
         );
       },
@@ -97,9 +98,9 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
   }
 
   Widget _goodsImage(List goodsList, index) {
-    return Container(
+    return Image.network(
+      goodsList[index].image,
       width: ScreenUtil().setWidth(200),
-      child: Image.network(goodsList[index].image),
     );
   }
 

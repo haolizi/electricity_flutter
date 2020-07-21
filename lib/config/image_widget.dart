@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 
 // 封装图片加载控件，增加图片加载失败时加载默认图片
 class ImageWidget extends StatefulWidget {
-  ImageWidget({@required this.url, this.w, this.h, this.defImagePath = 'images/home/banner_placehold.png'});
+  ImageWidget(
+      {@required this.url,
+      this.w,
+      this.h,
+      this.defImagePath = 'images/home/banner_placehold.png'});
 
   final String url;
   final double w;
@@ -27,20 +31,23 @@ class _StateImageWidget extends State<ImageWidget> {
       widget.url,
       width: widget.w,
       height: widget.h,
+      frameBuilder: (
+        BuildContext context,
+        Widget child,
+        int frame,
+        bool wasSynchronouslyLoaded,
+      ) {
+        if (frame == null) {
+          return Image.asset(
+            'images/home/category_placehold.png',
+            height: widget.h,
+            width: widget.w,
+            fit: BoxFit.cover,
+          );
+        }
+        return child;
+      },
     );
-    var resolve = _image.image.resolve(ImageConfiguration.empty);
-    resolve.addListener(ImageStreamListener((_, __) {
-      //加载成功
-    }, onError: (dynamic exception, StackTrace stackTrace) {
-      //加载失败
-      setState(() {
-        _image = Image.asset(
-          widget.defImagePath,
-          width: widget.w,
-          height: widget.h,
-        );
-      });
-    }));
   }
 
   @override

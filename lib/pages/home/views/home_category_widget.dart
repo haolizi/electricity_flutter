@@ -21,20 +21,23 @@ class HomeCategoryWidget extends StatelessWidget {
     height = ((categoryList.length - 1) ~/ 5 + 1) * 80.toDouble();
 
     return Consumer<HomeContentProvider>(
-        builder: (BuildContext context, value, child) {
-      return Container(
-        height: ScreenUtil().setWidth(2 * height - 30),
-        padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
-        child: GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 5,
-          padding: EdgeInsets.all(5.0),
-          children: categoryList.map((item) {
-            return _categoryItem(context, item);
-          }).toList(),
-        ),
-      );
-    });
+      builder: (BuildContext context, value, child) {
+        return Container(
+          height: ScreenUtil().setWidth(2 * height - 30),
+          padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
+          child: GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 5,
+            padding: EdgeInsets.all(5.0),
+            children: _listWidget(context, categoryList),
+          ),
+        );
+      },
+    );
+  }
+
+  List<Widget> _listWidget(BuildContext context, List<Map> categoryList) {
+    return categoryList.map((item) => _categoryItem(context, item)).toList();
   }
 }
 
@@ -46,7 +49,12 @@ Widget _categoryItem(BuildContext context, item) {
     },
     child: Column(
       children: <Widget>[
-        ImageWidget(url: item['image'], w: ScreenUtil().setWidth(95)),
+        ImageWidget(
+          url: item['image'],
+          w: ScreenUtil().setWidth(95),
+          h: ScreenUtil().setWidth(95),
+          defImagePath: 'images/home/category_placehold.png',
+        ),
         Text(
           item['mallCategoryName'],
           style: TextStyle(fontSize: 14),

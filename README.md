@@ -21,7 +21,6 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 * [x] 分类页
 * [x] 购物车页面
 * [x] 个人中心
-* [ ] 注册登录
 * [x] 订单模块
 * [ ] 启动页广告
 * [ ] 推送
@@ -47,6 +46,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 |  路由  |[fluro](https://pub.flutter-io.cn/packages/fluro)|1.6.3|
 |  html  |[flutter_html](https://pub.flutter-io.cn/packages/flutter_html)|1.0.0|
 |  数据持久化  |[shared_preferences](https://pub.flutter-io.cn/packages/shared_preferences)|0.5.7+3|
+|  toast  |[toast](https://pub.flutter-io.cn/packages/toast)|0.1.5|
 
 ### ✨使用教程
 * 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
@@ -110,6 +110,7 @@ flutter doctor -v
 
 ### ❓遇到问题
 * [启动卡死](ISSUES.md)
+* 点击分类中的小分类没有刷新商品列表？经过多次验证，请求接口时小分类id是传过去的，用postman也进行了验证，都是这个结果，暂时未找到原因。
 
 #### 其他问题
 * [https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)

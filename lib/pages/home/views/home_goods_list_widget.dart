@@ -44,7 +44,6 @@ class GoodsListWidget extends StatelessWidget {
       List<Widget> listWidget = goodsList.map((val) {
         return _goodsItemWidget(context, val);
       }).toList();
-
       return Wrap(spacing: 2, children: listWidget);
     } else {
       return Text('');
@@ -65,7 +64,11 @@ class GoodsListWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 3.0),
         child: Column(
           children: <Widget>[
-            ImageWidget(url: item['image'], w: ScreenUtil().setWidth(370)),
+            ImageWidget(
+              url: item['image'],
+              w: ScreenUtil().setWidth(370),
+              defImagePath: 'images/home/square_placehold.png',
+            ),
             Text(
               item['name'],
               maxLines: 1,

@@ -9,6 +9,7 @@ import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 import '../providers/home_provider.dart';
 import '../../../config/routers/router_application.dart';
+import '../../../config/image_widget.dart';
 
 class RecommendInfoWidget extends StatelessWidget {
   const RecommendInfoWidget({Key key}) : super(key: key);
@@ -16,21 +17,22 @@ class RecommendInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeContentProvider>(
-      builder: (BuildContext context, value, child) {
-        List recommentList = Provider.of<HomeContentProvider>(context, listen: false).recommendList;
-        return Container(
-          margin: EdgeInsets.only(top:5),
-          child: Column(
-            children: <Widget>[
-              _titleWidget(),
-              _recommentList(context, recommentList),
-            ],
-          ),
-        ); 
-      }
-    );
+        builder: (BuildContext context, value, child) {
+      List recommentList =
+          Provider.of<HomeContentProvider>(context, listen: false)
+              .recommendList;
+      return Container(
+        margin: EdgeInsets.only(top: 5),
+        child: Column(
+          children: <Widget>[
+            _titleWidget(),
+            _recommentList(context, recommentList),
+          ],
+        ),
+      );
+    });
   }
-  
+
   // 标题
   Widget _titleWidget() {
     return Container(
@@ -61,10 +63,11 @@ class RecommendInfoWidget extends StatelessWidget {
   Widget _item(context, index, recommentList) {
     return InkWell(
       onTap: () {
-        ApplicationRouter.router.navigateTo(context, 'detail?id=${recommentList[index]['goodsId']}', transition: TransitionType.native);
+        ApplicationRouter.router.navigateTo(
+            context, 'detail?id=${recommentList[index]['goodsId']}',
+            transition: TransitionType.native);
       },
       child: Container(
-        // height: ScreenUtil().setHeight(330),
         width: ScreenUtil().setWidth(250),
         padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
@@ -73,10 +76,10 @@ class RecommendInfoWidget extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Image.network(
-              recommentList[index]['image'],
-              width: ScreenUtil().setWidth(250),
-              // height: ScreenUtil().setHeight(220),
+            ImageWidget(
+              url: recommentList[index]['image'],
+              w: ScreenUtil().setWidth(250),
+              defImagePath: 'images/square_placehold.png',
             ),
             Text('￥${recommentList[index]['mallPrice']}'),
             Text(
