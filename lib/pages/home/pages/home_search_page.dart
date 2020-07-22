@@ -78,7 +78,6 @@ class CustomSearchDelegate extends SearchDelegate {
   // 商品列表
   Widget _goodsListWidget(BuildContext context) {
     return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       crossAxisSpacing: 5.0,
       mainAxisSpacing: 5.0,
@@ -145,7 +144,6 @@ class CustomSearchDelegate extends SearchDelegate {
     await DioUtil.requestData('searchPageUrl', formData: formData)
         .then((value) {
       var data = json.decode(value.toString());
-      print('------search:${data}');
       goodsModel = SearchGoodsModel.fromJson(data);
     });
 

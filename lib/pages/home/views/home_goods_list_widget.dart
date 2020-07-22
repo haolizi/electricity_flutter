@@ -22,17 +22,29 @@ class GoodsListWidget extends StatelessWidget {
       return Container(
         width: ScreenUtil().setWidth(750),
         child: Column(
-          children: <Widget>[_hotTitle(), _wrapList(context)],
+          children: <Widget>[_hotTitle(context), _wrapList(context)],
         ),
       );
     });
   }
 
-  Widget _hotTitle() {
+  Widget _hotTitle(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    Gradient gradient = LinearGradient(
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      colors: [Colors.red, KColor.themeColor, Colors.greenAccent[700]],
+    );
+    // 根据gradient 创建shader
+    Shader shader =
+        gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
     return Container(
       padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
       alignment: Alignment.center,
-      child: Text('---推荐产品---'),
+      child: Text(
+        '---推荐产品---',
+        style: TextStyle(foreground: Paint()..shader = shader),
+      ),
     );
   }
 

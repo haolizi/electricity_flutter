@@ -18,13 +18,14 @@ class HomeCategoryWidget extends StatelessWidget {
     double height = 0.0;
     List categoryList =
         Provider.of<HomeContentProvider>(context, listen: false).categoryList;
-    height = ((categoryList.length - 1) ~/ 5 + 1) * 80.toDouble();
+    height = ((categoryList.length - 1) ~/ 5 + 1) * 76.toDouble();
 
     return Consumer<HomeContentProvider>(
       builder: (BuildContext context, value, child) {
         return Container(
           height: ScreenUtil().setWidth(2 * height - 30),
           padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
+          color: Colors.white,
           child: GridView.count(
             physics: const NeverScrollableScrollPhysics(),
             crossAxisCount: 5,
@@ -51,13 +52,13 @@ Widget _categoryItem(BuildContext context, item) {
       children: <Widget>[
         ImageWidget(
           url: item['image'],
-          w: ScreenUtil().setWidth(95),
-          h: ScreenUtil().setWidth(95),
+          w: ScreenUtil().setWidth(80),
+          h: ScreenUtil().setWidth(80),
           defImagePath: 'images/home/category_placehold.png',
         ),
         Text(
           item['mallCategoryName'],
-          style: TextStyle(fontSize: 14),
+          style: TextStyle(fontSize: 13),
         ),
       ],
     ),

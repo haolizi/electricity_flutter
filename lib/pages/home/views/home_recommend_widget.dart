@@ -4,6 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_01/config/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
@@ -37,12 +38,25 @@ class RecommendInfoWidget extends StatelessWidget {
   Widget _titleWidget() {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.fromLTRB(10.0, 5.0, 0, 5.0),
+      padding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border(bottom: BorderSide(width: 0.5, color: Colors.black12)),
       ),
-      child: Text('商品推荐', style: TextStyle(color: Colors.pink)),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: 3,
+            color: KColor.themeColor,
+            margin: EdgeInsets.only(right: 10),
+            child: Text(''),
+          ),
+          Text(
+            '商品推荐',
+            style: TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 
@@ -69,7 +83,7 @@ class RecommendInfoWidget extends StatelessWidget {
       },
       child: Container(
         width: ScreenUtil().setWidth(250),
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border(left: BorderSide(width: 0.5, color: Colors.black12)),

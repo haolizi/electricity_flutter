@@ -9,27 +9,32 @@ class DetailWebWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<DetailInfoProvider>(
-      builder: (context, child, value) {
-        var goodsDetail = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodInfo.goodsDetail;
-        List<dynamic> commentsList = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodComments;
-        var isLeft = Provider.of<DetailInfoProvider>(context, listen: false).isSelectLeft;
-        if (goodsDetail != null) {
-          if (isLeft) {
-            return Container(
-              child: Html(
-                data: goodsDetail
-              ),
-            );
-          } else {
-            return Container(
-              child: DetailCommentsWidget(commentsList:commentsList)
-            );
-          }
+    return Consumer<DetailInfoProvider>(builder: (context, child, value) {
+      var goodsDetail = Provider.of<DetailInfoProvider>(context, listen: false)
+          .detailModel
+          .data
+          .goodInfo
+          .goodsDetail;
+      List<dynamic> commentsList =
+          Provider.of<DetailInfoProvider>(context, listen: false)
+              .detailModel
+              .data
+              .goodComments;
+      var isLeft =
+          Provider.of<DetailInfoProvider>(context, listen: false).isSelectLeft;
+      if (goodsDetail != null) {
+        if (isLeft) {
+          return Container(
+            color: Colors.white,
+            child: Html(data: goodsDetail),
+          );
         } else {
-          return Text('加载中...');
+          return Container(
+              child: DetailCommentsWidget(commentsList: commentsList));
         }
+      } else {
+        return Text('加载中...');
       }
-    );
+    });
   }
 }
