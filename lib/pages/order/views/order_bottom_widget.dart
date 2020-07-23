@@ -20,7 +20,7 @@ class BottomWidget extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
       width: ScreenUtil().setWidth(750),
       height: ScreenUtil().setHeight(100),
-      color: Colors.grey[200],
+      color: KColor.bgColor,
       child: Stack(
         children: <Widget>[
           Align(

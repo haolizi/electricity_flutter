@@ -8,15 +8,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../config/color.dart';
 import 'package:provider/provider.dart';
 import '../config/routers/tab_index_provider.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Tabs extends StatelessWidget {
-  final List<BottomNavigationBarItem> bottomTabs = [
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-    BottomNavigationBarItem(icon: Icon(Icons.category), title: Text('分类')),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.shopping_cart), title: Text('购物车')),
-    BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('个人中心')),
+  final List<Widget> bottomTabs = [
+    Icon(Icons.home, size: 30),
+    Icon(Icons.category, size: 30),
+    Icon(Icons.shopping_cart, size: 30),
+    Icon(Icons.person, size: 30),
   ];
+
   final List<String> _titleList = ['某知名电商', '商品分类', '购物车', '我的'];
   final List<Widget> tabBodies = [
     HomePage(),
@@ -50,12 +51,11 @@ class Tabs extends StatelessWidget {
             : AppBar(
                 title: Text(_titleList[currentIndex]),
               ),
-        backgroundColor: Color.fromRGBO(244, 245, 245, 1.0),
-        bottomNavigationBar: BottomNavigationBar(
-          fixedColor: KColor.themeColor,
-          unselectedItemColor: Colors.black38,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
+        backgroundColor: KColor.bgColor,
+        bottomNavigationBar: CurvedNavigationBar(
+          index: currentIndex,
+          backgroundColor: KColor.themeColor,
+          animationDuration: Duration(milliseconds: 300),
           items: bottomTabs,
           onTap: (index) {
             Provider.of<CurrentIndexProvider>(context, listen: false)

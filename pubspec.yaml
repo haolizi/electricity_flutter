@@ -35,7 +35,7 @@ dependencies:
   flutter_html: ^1.0.0
   shared_preferences: ^0.5.7+3
   toast: ^0.1.5
-  add_cart_parabola: ^0.0.6
+  curved_navigation_bar: ^0.3.3
 
 dev_dependencies:
   flutter_test:

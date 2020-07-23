@@ -17,7 +17,7 @@ class DetailTabbarWidget extends StatelessWidget {
       var isLeft = infoProvide.isSelectLeft;
       var isRight = infoProvide.isSelectRight;
       return Container(
-        color: Color.fromRGBO(250, 250, 250, 1.0),
+        color: Color.fromRGBO(244, 246, 250, 1.0),
         padding: EdgeInsets.only(top: 10),
         child: Row(
           children: <Widget>[

@@ -4,6 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_01/config/color.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/request/service_method.dart';
@@ -62,7 +63,7 @@ class _LeftCategoryListWidgetState extends State<LeftCategoryListWidget> {
       child: Container(
         height: ScreenUtil().setHeight(100),
         decoration: BoxDecoration(
-            color: isClick ? Color.fromRGBO(236, 236, 236, 1.0) : Colors.white,
+            color: isClick ? KColor.bgColor : Colors.white,
             border:
                 Border(bottom: BorderSide(width: 1, color: Colors.black12))),
         child: Center(

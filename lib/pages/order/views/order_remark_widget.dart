@@ -3,7 +3,7 @@
  * 备注
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/screenutil.dart';
+import 'package:flutter_01/config/color.dart';
 
 class RemarkWidget extends StatelessWidget {
   const RemarkWidget({Key key}) : super(key: key);
@@ -11,7 +11,7 @@ class RemarkWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[200],
+      color: KColor.bgColor,
       padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
       child: Row(
         children: <Widget>[
