@@ -23,20 +23,21 @@ class OrderAdressPage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              ApplicationRouter.router.navigateTo(context, 'order/addAdress', transition:TransitionType.native);
+              ApplicationRouter.router.navigateTo(context, 'order/addAdress',
+                  transition: TransitionType.native);
             },
           ),
         ],
       ),
       body: FutureBuilder(
-        future: _getAdressInfo(context),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return AdressListWidget();
-          } else {
-            return NoAdressWidget();
-          }
-        }),
+          future: _getAdressInfo(context),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return AdressListWidget();
+            } else {
+              return NoAdressWidget();
+            }
+          }),
     );
   }
 
@@ -45,14 +46,4 @@ class OrderAdressPage extends StatelessWidget {
         .getAdressList();
     return '加载完成';
   }
-
-  // Widget _testWidget(BuildContext context) {
-  //   return InkWell(
-  //     onTap: () {
-  //       Provider.of<OrderAdressProvider>(context, listen: false)
-  //           .addAdressToList('帅呆酷毙', '13888888888', '深圳市南山区腾讯滨海大厦', '2020');
-  //     },
-  //     child: Text('11111'),
-  //   );
-  // }
 }

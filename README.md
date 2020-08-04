@@ -22,7 +22,6 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 * [x] 购物车页面
 * [x] 个人中心
 * [x] 订单模块
-* [ ] 启动页广告
 * [ ] 推送
 * [ ] 定位
 
@@ -48,7 +47,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 |  html  |[flutter_html](https://pub.flutter-io.cn/packages/flutter_html)|1.0.0|
 |  数据持久化  |[shared_preferences](https://pub.flutter-io.cn/packages/shared_preferences)|0.5.7+3|
 |  toast  |[toast](https://pub.flutter-io.cn/packages/toast)|0.1.5|
-|  NavigationBar  |[toast](https://pub.flutter-io.cn/packages/curved_navigation_bar)|0.3.3|
+|  NavigationBar  |[curved_navigation_bar](https://pub.flutter-io.cn/packages/curved_navigation_bar)|0.3.3|
 
 
 ### ✨使用教程

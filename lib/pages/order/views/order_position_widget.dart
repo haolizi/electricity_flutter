@@ -17,8 +17,6 @@ class PositionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderAdressProvider>(
         builder: (BuildContext context, child, value) {
-      AdressInfoModel model =
-          Provider.of<OrderAdressProvider>(context, listen: false).selectModel;
       return InkWell(
         child: Container(
           padding: EdgeInsets.fromLTRB(10, 12, 0, 12),
@@ -31,7 +29,7 @@ class PositionWidget extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Icon(Icons.location_on),
-              _adressInfoWidget(model),
+              _adressInfoWidget(child.selectModel),
               Container(
                 width: ScreenUtil().setWidth(40),
                 child: Image.asset('images/mine/right_arrow.png'),
