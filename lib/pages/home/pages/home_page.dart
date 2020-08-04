@@ -39,30 +39,28 @@ class _HomePageState extends State<HomePage> {
                 loadReadyText: '松开后开始加载',
                 loadingText: '正在加载',
                 loadedText: '加载完成',
-                noMoreText: '没有更多内容了'
+                noMoreText: '没有更多内容了',
               ),
               child: ListView(
                 children: <Widget>[
-                  HomeBannerWidget(),    // banner
-                  HomeCategoryWidget(),  // 小分类
-                  LeaderInfoWidget(),    // 店长信息
+                  HomeBannerWidget(), // banner
+                  HomeCategoryWidget(), // 小分类
+                  LeaderInfoWidget(), // 店长信息
                   RecommendInfoWidget(), // 推荐列表
-                  FloorInfoWidget(),     // 楼层
-                  GoodsListWidget(),     // 商品列表
+                  FloorInfoWidget(), // 楼层
+                  GoodsListWidget(), // 商品列表
                 ],
               ),
 
               // 加载更多
               onLoad: () async {
-                Provider.of<HomeListProvider>(context, listen: false).getListInfo();
+                Provider.of<HomeListProvider>(context, listen: false)
+                    .getListInfo();
               },
             );
           } else {
             return Center(
-              child: SpinKitFadingCircle(
-                color: KColor.themeColor,
-                size: 50.0
-              ),
+              child: SpinKitFadingCircle(color: KColor.themeColor, size: 50.0),
             );
           }
         },
@@ -72,7 +70,8 @@ class _HomePageState extends State<HomePage> {
 
   // 获取首页上半部分接口homePageContent
   Future _getDatasInfo(BuildContext context) async {
-    await Provider.of<HomeContentProvider>(context, listen: false).getContentInfo();
+    await Provider.of<HomeContentProvider>(context, listen: false)
+        .getContentInfo();
     return '加载完成';
   }
 }

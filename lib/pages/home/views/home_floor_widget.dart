@@ -15,14 +15,12 @@ class FloorInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeContentProvider>(
         builder: (BuildContext context, value, child) {
-      HomeContentProvider homeProvider =
-          Provider.of<HomeContentProvider>(context, listen: false);
-      List floor1List = homeProvider.floor1List;
-      List floor2List = homeProvider.floor2List;
-      List floor3List = homeProvider.floor3List;
-      String floor1TopImage = homeProvider.floor1TopImage;
-      String floor2TopImage = homeProvider.floor2TopImage;
-      String floor3TopImage = homeProvider.floor3TopImage;
+      List floor1List = value.floor1List;
+      List floor2List = value.floor2List;
+      List floor3List = value.floor3List;
+      String floor1TopImage = value.floor1TopImage;
+      String floor2TopImage = value.floor2TopImage;
+      String floor3TopImage = value.floor3TopImage;
 
       return Container(
         padding: EdgeInsets.only(top: 5),

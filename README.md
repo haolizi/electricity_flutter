@@ -27,7 +27,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 * [ ] 定位
 
 ### 更新记录
-* 2020-7-04 添加搜索功能，优化部分页面
+* 2020-7-14 添加搜索功能，优化部分页面
 * 2020-7-04 完善订单支付页面
 * 2020-6-27 优化评论列表，添加订单支付页面
 * 2020-6-19 优化购物车，添加个人中心页面
@@ -48,6 +48,8 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 |  html  |[flutter_html](https://pub.flutter-io.cn/packages/flutter_html)|1.0.0|
 |  数据持久化  |[shared_preferences](https://pub.flutter-io.cn/packages/shared_preferences)|0.5.7+3|
 |  toast  |[toast](https://pub.flutter-io.cn/packages/toast)|0.1.5|
+|  NavigationBar  |[toast](https://pub.flutter-io.cn/packages/curved_navigation_bar)|0.3.3|
+
 
 ### ✨使用教程
 * 拉取项目：git clone [https://github.com/haolizi/electricity_flutter.git](https://github.com/haolizi/electricity_flutter.git)
@@ -71,7 +73,6 @@ flutter doctor -v
     • Framework revision 8af6b2f038 (4 days ago), 2020-06-30 12:53:55 -0700
     • Engine revision ee76268252
     • Dart version 2.8.4
-
 
 [✓] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
     • Android SDK at /Users/qianbaiwan04/Library/Android/sdk

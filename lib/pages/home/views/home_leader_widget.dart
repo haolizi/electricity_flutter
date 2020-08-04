@@ -18,11 +18,9 @@ class LeaderInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeContentProvider>(
       builder: (BuildContext context, value, child) {
-        HomeContentProvider homeProvider =
-            Provider.of<HomeContentProvider>(context, listen: false);
-        String adBannerImage = homeProvider.adBannerImage;
-        String leaderInfoBgImage = homeProvider.leaderInfoBgImage;
-        String leaderInfoContact = homeProvider.leaderInfoContact;
+        String adBannerImage = value.adBannerImage;
+        String leaderInfoBgImage = value.leaderInfoBgImage;
+        String leaderInfoContact = value.leaderInfoContact;
         return Container(
           margin: EdgeInsets.only(top: 5),
           child: Column(

@@ -18,22 +18,18 @@ class HomeCategoryWidget extends StatelessWidget {
     double height = 0.0;
     List categoryList =
         Provider.of<HomeContentProvider>(context, listen: false).categoryList;
-    height = ((categoryList.length - 1) ~/ 5 + 1) * 76.toDouble();
+    height = ((categoryList.length - 1) ~/ 5 + 1) * 78.toDouble();
 
-    return Consumer<HomeContentProvider>(
-      builder: (BuildContext context, value, child) {
-        return Container(
-          height: ScreenUtil().setWidth(2 * height - 30),
-          padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
-          color: Colors.white,
-          child: GridView.count(
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 5,
-            padding: EdgeInsets.all(5.0),
-            children: _listWidget(context, categoryList),
-          ),
-        );
-      },
+    return Container(
+      height: ScreenUtil().setWidth(2 * height - 30),
+      padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
+      color: Colors.white,
+      child: GridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        crossAxisCount: 5,
+        padding: EdgeInsets.all(5.0),
+        children: _listWidget(context, categoryList),
+      ),
     );
   }
 
@@ -56,6 +52,7 @@ Widget _categoryItem(BuildContext context, item) {
           h: ScreenUtil().setWidth(80),
           defImagePath: 'images/home/category_placehold.png',
         ),
+        SizedBox(height: 5),
         Text(
           item['mallCategoryName'],
           style: TextStyle(fontSize: 13),

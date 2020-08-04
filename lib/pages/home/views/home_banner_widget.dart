@@ -21,20 +21,18 @@ class HomeBannerWidget extends StatelessWidget {
     return Consumer<HomeContentProvider>(
         builder: (BuildContext context, value, child) {
       double screenWidth = MediaQuery.of(context).size.width;
-      var bannerDataList =
-          Provider.of<HomeContentProvider>(context, listen: false).bannerList;
       return Container(
         height: 333 / 750 * screenWidth,
         width: ScreenUtil().setWidth(750),
         child: Swiper(
           autoplay: true,
-          itemCount: bannerDataList.length,
+          itemCount: value.bannerList.length,
           itemBuilder: (BuildContext context, int index) {
-            String imageUrl = bannerDataList[index]['image'];
+            String imageUrl = value.bannerList[index]['image'];
             return InkWell(
               onTap: () {
                 ApplicationRouter.router.navigateTo(
-                    context, 'detail?id=${bannerDataList[index]['goodsId']}',
+                    context, 'detail?id=${value.bannerList[index]['goodsId']}',
                     transition: TransitionType.native);
               },
               child: ImageWidget(

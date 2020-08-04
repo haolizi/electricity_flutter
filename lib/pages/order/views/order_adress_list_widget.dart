@@ -17,13 +17,11 @@ class AdressListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderAdressProvider>(
         builder: (BuildContext context, child, value) {
-      List<AdressInfoModel> adressList =
-          Provider.of<OrderAdressProvider>(context, listen: false).infoList;
-      if (adressList.length > 0) {
+      if (child.infoList.length > 0) {
         return ListView.builder(
-          itemCount: adressList.length,
+          itemCount: child.infoList.length,
           itemBuilder: (context, index) {
-            return _listItemWidget(context, adressList[index], index);
+            return _listItemWidget(context, child.infoList[index], index);
           },
         );
       } else {

@@ -44,20 +44,17 @@ class NoAdressWidget extends StatelessWidget {
 
   Widget _addBtnWidget(BuildContext context) {
     return FlatButton(
-      color: KColor.themeColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
-      child: Text(
-        '点击添加',
-        style: TextStyle(
-          color: Colors.white,
+        color: KColor.themeColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
+        child: Text(
+          '点击添加',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-      ),
-      onPressed: () {
-        ApplicationRouter.router.navigateTo(
-          context, 'order/addAdress',
-          transition: TransitionType.native
-        );
-      }
-    );
+        onPressed: () {
+          ApplicationRouter.router.navigateTo(context, 'order/addAdress',
+              transition: TransitionType.native);
+        });
   }
 }

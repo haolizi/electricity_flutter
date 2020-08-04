@@ -14,18 +14,18 @@ import '../providers/cart_provider.dart';
 class CartItem extends StatelessWidget {
   final CartInfoModel model;
   const CartItem(this.model);
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        border:Border(
-          bottom:BorderSide(width:1, color:Colors.black12),
+        border: Border(
+          bottom: BorderSide(width: 1, color: Colors.black12),
         ),
       ),
-      child:Row(
+      child: Row(
         children: <Widget>[
           _checkBtn(context),
           _goodImage(),
@@ -40,13 +40,14 @@ class CartItem extends StatelessWidget {
   Widget _checkBtn(context) {
     return Container(
       child: Checkbox(
-        value: model.isCheck, 
+        value: model.isCheck,
         activeColor: KColor.themeColor,
         onChanged: (bool isCheck) {
           model.isCheck = isCheck;
-          Provider.of<CartProvider>(context, listen: false).changeCheckState(model);
-        }
-      )
+          Provider.of<CartProvider>(context, listen: false)
+              .changeCheckState(model);
+        },
+      ),
     );
   }
 
@@ -56,7 +57,7 @@ class CartItem extends StatelessWidget {
       width: ScreenUtil().setWidth(150),
       padding: EdgeInsets.all(3.0),
       decoration: BoxDecoration(
-        border:Border.all(width:1, color: Colors.black12),
+        border: Border.all(width: 1, color: Colors.black12),
       ),
       child: Image.network(model.image),
     );
@@ -90,10 +91,11 @@ class CartItem extends StatelessWidget {
 
           // 删除按钮
           Container(
-            margin: EdgeInsets.only(top:10),
+            margin: EdgeInsets.only(top: 10),
             child: InkWell(
               onTap: () async {
-                await Provider.of<CartProvider>(context, listen: false).deleteOneGood(model.goodsId);
+                await Provider.of<CartProvider>(context, listen: false)
+                    .deleteOneGood(model.goodsId);
               },
               child: Icon(
                 Icons.delete_forever,

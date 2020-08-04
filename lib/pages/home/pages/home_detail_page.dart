@@ -19,48 +19,40 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:Text('商品详情')
-      ),
+      appBar: AppBar(title: Text('商品详情')),
       body: FutureBuilder(
-        future: _getDetailsInfo(context),
-        builder: (context, snapshot) {
-          if(snapshot.hasData) {
-            return Stack(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(bottom:45), 
-                  child: ListView(
-                    children: <Widget>[
-                      DetailTopInfoWidget(),       // 头部图片、标题、价格、说明信息
-                      DetailInstructions(),        // 说明
-                      DetailTabbarWidget(),        // segment
-                      DetailWebWidget(),           // 商品详情及评论
-                    ],
+          future: _getDetailsInfo(context),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Stack(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(bottom: 45),
+                    child: ListView(
+                      children: <Widget>[
+                        DetailTopInfoWidget(), // 头部图片、标题、价格、说明信息
+                        DetailInstructions(), // 说明
+                        DetailTabbarWidget(), // segment
+                        DetailWebWidget(), // 商品详情及评论
+                      ],
+                    ),
                   ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  child: DetailBottomWidget()
-                ),
-              ],
-            );
-          } else {
-            return Center(
-              child: SpinKitFadingCircle(
-                color: KColor.themeColor,
-                size: 50.0
-              ),
-            );
-          }
-        }
-      ),
+                  Positioned(bottom: 0, left: 0, child: DetailBottomWidget()),
+                ],
+              );
+            } else {
+              return Center(
+                child:
+                    SpinKitFadingCircle(color: KColor.themeColor, size: 50.0),
+              );
+            }
+          }),
     );
   }
 
   Future _getDetailsInfo(BuildContext context) async {
-    await Provider.of<DetailInfoProvider>(context, listen: false).getGoodsInfo(goodsId);
+    await Provider.of<DetailInfoProvider>(context, listen: false)
+        .getGoodsInfo(goodsId);
     return '加载完成';
   }
 }

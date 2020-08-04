@@ -12,10 +12,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Tabs extends StatelessWidget {
   final List<Widget> bottomTabs = [
-    Icon(Icons.home, size: 30),
-    Icon(Icons.category, size: 30),
-    Icon(Icons.shopping_cart, size: 30),
-    Icon(Icons.person, size: 30),
+    Icon(Icons.home, size: 30, color: Colors.white),
+    Icon(Icons.category, size: 30, color: Colors.white),
+    Icon(Icons.shopping_cart, size: 30, color: Colors.white),
+    Icon(Icons.person, size: 30, color: Colors.white),
   ];
 
   final List<String> _titleList = ['某知名电商', '商品分类', '购物车', '我的'];
@@ -31,13 +31,10 @@ class Tabs extends StatelessWidget {
     ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: true);
 
     return Consumer<CurrentIndexProvider>(builder: (context, child, val) {
-      int currentIndex =
-          Provider.of<CurrentIndexProvider>(context, listen: false)
-              .currentIndex;
       return Scaffold(
-        appBar: currentIndex == 0
+        appBar: child.currentIndex == 0
             ? AppBar(
-                title: Text(_titleList[currentIndex]),
+                title: Text(_titleList[child.currentIndex]),
                 actions: <Widget>[
                   IconButton(
                     icon: Icon(Icons.search),
@@ -45,16 +42,18 @@ class Tabs extends StatelessWidget {
                       showSearch(
                           context: context, delegate: CustomSearchDelegate());
                     },
-                  )
+                  ),
                 ],
               )
             : AppBar(
-                title: Text(_titleList[currentIndex]),
+                title: Text(_titleList[child.currentIndex]),
               ),
         backgroundColor: KColor.bgColor,
         bottomNavigationBar: CurvedNavigationBar(
-          index: currentIndex,
-          backgroundColor: KColor.themeColor,
+          index: child.currentIndex,
+          color: KColor.themeColor,
+          backgroundColor: Colors.white,
+          buttonBackgroundColor: KColor.themeColor,
           animationDuration: Duration(milliseconds: 300),
           items: bottomTabs,
           onTap: (index) {
@@ -62,7 +61,7 @@ class Tabs extends StatelessWidget {
                 .changeTabIndex(index);
           },
         ),
-        body: IndexedStack(index: currentIndex, children: tabBodies),
+        body: IndexedStack(index: child.currentIndex, children: tabBodies),
       );
     });
   }

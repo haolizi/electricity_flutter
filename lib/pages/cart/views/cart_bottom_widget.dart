@@ -21,15 +21,11 @@ class CartBottom extends StatelessWidget {
         color: Colors.white,
         child: Consumer<CartProvider>(
             builder: (BuildContext context, child, value) {
-          double allPrice =
-              Provider.of<CartProvider>(context, listen: false).allPrice;
-          int allGoodsCount =
-              Provider.of<CartProvider>(context, listen: false).allGoodsCount;
           return Row(
             children: <Widget>[
               _selectAllBtn(context),
-              _allPriceArea(context, allPrice),
-              _buyBtn(context, allGoodsCount),
+              _allPriceArea(context, child.allPrice),
+              _buyBtn(context, child.allGoodsCount),
             ],
           );
         }));
@@ -58,7 +54,6 @@ class CartBottom extends StatelessWidget {
   Widget _allPriceArea(context, allPrice) {
     return Container(
       width: ScreenUtil().setWidth(430),
-      // alignment: texta,
       child: Column(
         children: <Widget>[
           Row(

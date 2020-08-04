@@ -17,10 +17,7 @@ class DetailTopInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DetailInfoProvider>(
       builder: (BuildContext context, goodsData, child) {
-        var goodsInfo = Provider.of<DetailInfoProvider>(context, listen: false)
-            .detailModel
-            .data
-            .goodInfo;
+        var goodsInfo = goodsData.detailModel.data.goodInfo;
         if (goodsInfo != null) {
           return Container(
             color: Colors.white,

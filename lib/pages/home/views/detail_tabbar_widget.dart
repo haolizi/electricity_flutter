@@ -12,17 +12,13 @@ class DetailTabbarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DetailInfoProvider>(
         builder: (BuildContext context, child, value) {
-      DetailInfoProvider infoProvide =
-          Provider.of<DetailInfoProvider>(context, listen: false);
-      var isLeft = infoProvide.isSelectLeft;
-      var isRight = infoProvide.isSelectRight;
       return Container(
         color: Color.fromRGBO(244, 246, 250, 1.0),
         padding: EdgeInsets.only(top: 10),
         child: Row(
           children: <Widget>[
-            _tabbarLeft(context, isLeft),
-            _tabbarRight(context, isRight)
+            _tabbarLeft(context, child.isSelectLeft),
+            _tabbarRight(context, child.isSelectRight)
           ],
         ),
       );
@@ -51,7 +47,7 @@ class DetailTabbarWidget extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

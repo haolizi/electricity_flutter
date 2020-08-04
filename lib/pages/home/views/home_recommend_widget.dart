@@ -19,15 +19,12 @@ class RecommendInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeContentProvider>(
         builder: (BuildContext context, value, child) {
-      List recommentList =
-          Provider.of<HomeContentProvider>(context, listen: false)
-              .recommendList;
       return Container(
         margin: EdgeInsets.only(top: 5),
         child: Column(
           children: <Widget>[
             _titleWidget(),
-            _recommentList(context, recommentList),
+            _recommentList(context, value.recommendList),
           ],
         ),
       );
@@ -65,11 +62,12 @@ class RecommendInfoWidget extends StatelessWidget {
     return Container(
       height: 180,
       child: ListView.builder(
-          itemCount: recommentList.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return _item(context, index, recommentList);
-          }),
+        itemCount: recommentList.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return _item(context, index, recommentList);
+        },
+      ),
     );
   }
 

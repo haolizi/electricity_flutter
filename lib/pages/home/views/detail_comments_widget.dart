@@ -19,9 +19,7 @@ class DetailCommentsWidget extends StatelessWidget {
       List<Widget> listWidget = commentsList.map((val) {
         return _listItem(val);
       }).toList();
-      return Wrap (
-        children: listWidget
-      );
+      return Wrap(children: listWidget);
     } else {
       return Center(
         child: Text('暂未有评论'),
@@ -34,13 +32,10 @@ class DetailCommentsWidget extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
       width: ScreenUtil().setWidth(750),
       decoration: BoxDecoration(
-        color:Colors.white,
-        border:Border(
-          bottom: BorderSide(width:1.0, color:Colors.black12)
-        )
-      ),
-      
-      child:Column(
+          color: Colors.white,
+          border:
+              Border(bottom: BorderSide(width: 1.0, color: Colors.black12))),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           _userName(model),
@@ -55,20 +50,17 @@ class DetailCommentsWidget extends StatelessWidget {
     return Container(
       child: Text(
         model.userName,
-        style: TextStyle(
-          color:KColor.themeColor,
-          fontSize:14
-        ),
+        style: TextStyle(color: KColor.themeColor, fontSize: 14),
       ),
     );
   }
 
   Widget _commentDetail(GoodComments model) {
     return Container(
-      margin: EdgeInsets.only(top:5),
+      margin: EdgeInsets.only(top: 5),
       child: Text(
         model.comments,
-        style: TextStyle(fontSize:14),
+        style: TextStyle(fontSize: 14),
       ),
     );
   }
@@ -76,15 +68,11 @@ class DetailCommentsWidget extends StatelessWidget {
   Widget _creatTime(GoodComments model) {
     var timeStr = DateTime.fromMillisecondsSinceEpoch(model.discussTime);
     return Container(
-      margin: EdgeInsets.only(top:5),
+      margin: EdgeInsets.only(top: 5),
       child: Text(
         '${timeStr.toLocal().toString()}',
-        style: TextStyle(
-          color:Colors.black54,
-          fontSize:12
-        ),
+        style: TextStyle(color: Colors.black54, fontSize: 12),
       ),
     );
   }
 }
-

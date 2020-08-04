@@ -20,7 +20,10 @@ class DetailBottomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var goodsInfo = Provider.of<DetailInfoProvider>(context, listen: false).detailModel.data.goodInfo;
+    var goodsInfo = Provider.of<DetailInfoProvider>(context, listen: false)
+        .detailModel
+        .data
+        .goodInfo;
     var goodsId = goodsInfo.goodsId;
     var goodsName = goodsInfo.goodsName;
     var count = 1;
@@ -38,87 +41,77 @@ class DetailBottomWidget extends StatelessWidget {
             children: <Widget>[
               // 购物车
               InkWell(
-                onTap: (){
-                  Provider.of<CurrentIndexProvider>(context, listen: false).changeTabIndex(2);
+                onTap: () {
+                  Provider.of<CurrentIndexProvider>(context, listen: false)
+                      .changeTabIndex(2);
                   Navigator.pop(context);
                 },
                 child: Container(
                   width: ScreenUtil().setWidth(110),
                   alignment: Alignment.center,
-                  child: Icon(
-                    Icons.shopping_cart,
-                    size:30,
-                    color:KColor.themeColor
-                  ),
+                  child: Icon(Icons.shopping_cart,
+                      size: 30, color: KColor.themeColor),
                 ),
               ),
 
               Consumer<CartProvider>(
-                builder: (BuildContext context, value, child) {
-                  goodsCount = Provider.of<CartProvider>(context, listen: false).allGoodsCount;
-                  return goodsCount>0?Positioned(
-                    top: 0,
-                    right: 5,
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
-                      decoration: BoxDecoration(
-                        color: KColor.themeColor,
-                        border:Border.all(width: 2, color:Colors.white),
-                        borderRadius: BorderRadius.circular(12.0)
-                      ),
-                      child: Text(
-                        '${goodsCount}',
-                        style: TextStyle(
-                          color:Colors.white,
-                          fontSize: ScreenUtil().setSp(22)
+                  builder: (BuildContext context, value, child) {
+                goodsCount = value.allGoodsCount;
+                return goodsCount > 0
+                    ? Positioned(
+                        top: 0,
+                        right: 5,
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
+                          decoration: BoxDecoration(
+                              color: KColor.themeColor,
+                              border: Border.all(width: 2, color: Colors.white),
+                              borderRadius: BorderRadius.circular(12.0)),
+                          child: Text(
+                            '${goodsCount}',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: ScreenUtil().setSp(22)),
+                          ),
                         ),
-                      ),
-                    ),
-                  ):Text('');
-                }
-              )
+                      )
+                    : Text('');
+              })
             ],
           ),
-          
+
           // 加入购物车
           InkWell(
-            onTap: () async{
-              await Provider.of<CartProvider>(context, listen: false).addGoodsToCart(goodsId, goodsName, count, price, image);
-              Toast.show("添加成功", context, duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
+            onTap: () async {
+              await Provider.of<CartProvider>(context, listen: false)
+                  .addGoodsToCart(goodsId, goodsName, count, price, image);
+              Toast.show("添加成功", context,
+                  duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
             },
             child: Container(
               width: ScreenUtil().setWidth(320),
               alignment: Alignment.center,
               color: Colors.green,
-              child: Text(
-                '加入购物车',
-                style:TextStyle(
-                  fontSize:16,
-                  color:Colors.white
-                )
-              ),
+              child: Text('加入购物车',
+                  style: TextStyle(fontSize: 16, color: Colors.white)),
             ),
           ),
 
           // 立即购买
           InkWell(
             onTap: () async {
-              if(goodsCount > 0) {
-                ApplicationRouter.router.navigateTo(context, 'order/pay', transition:TransitionType.native);
+              if (goodsCount > 0) {
+                ApplicationRouter.router.navigateTo(context, 'order/pay',
+                    transition: TransitionType.native);
               }
             },
             child: Container(
               color: Colors.red,
               width: ScreenUtil().setWidth(320),
               alignment: Alignment.center,
-              child: Text(
-                '立即购买',
-                style:TextStyle(
-                  fontSize:16,
-                  color:Colors.white
-                )
-              ),
+              child: Text('立即购买',
+                  style: TextStyle(fontSize: 16, color: Colors.white)),
             ),
           ),
         ],

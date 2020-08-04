@@ -10,16 +10,8 @@ class DetailWebWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<DetailInfoProvider>(builder: (context, child, value) {
-      var goodsDetail = Provider.of<DetailInfoProvider>(context, listen: false)
-          .detailModel
-          .data
-          .goodInfo
-          .goodsDetail;
-      List<dynamic> commentsList =
-          Provider.of<DetailInfoProvider>(context, listen: false)
-              .detailModel
-              .data
-              .goodComments;
+      var goodsDetail = child.detailModel.data.goodInfo.goodsDetail;
+      List<dynamic> commentsList = child.detailModel.data.goodComments;
       var isLeft =
           Provider.of<DetailInfoProvider>(context, listen: false).isSelectLeft;
       if (goodsDetail != null) {
