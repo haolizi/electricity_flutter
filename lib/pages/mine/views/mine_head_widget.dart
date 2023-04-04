@@ -1,48 +1,43 @@
-/*
- * -------我的-------
- * 头部图片和头像
- */
-
+import 'package:electricity_flutter/common/page/base_text_style.dart';
+import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TopHead extends StatelessWidget {
-  const TopHead({Key key}) : super(key: key);
+class MineHeadWidget extends StatelessWidget {
+  const MineHeadWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: ScreenUtil().setWidth(750),
-      padding: EdgeInsets.all(20),
-      color:Colors.pinkAccent,
-      child: Column(
-        children: <Widget>[
-          // 头像
-          Container(
-            margin: EdgeInsets.only(top:30),
-            child: ClipOval(
-              child: Image.asset('images/mine/avatar_placehold_gray.png'),
-            ),
-          ),
-
-          Container(
-            width: ScreenUtil().setWidth(160),
-            height: ScreenUtil().setHeight(60),
-            margin: EdgeInsets.only(top:14),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border:Border.all(width: 1, color:Colors.white),
-              borderRadius: BorderRadius.circular(4.0)
-            ),
-            child: Text(
-              '点击登录',
-              style: TextStyle(
-                fontSize:ScreenUtil().setSp(30),
-                color:Colors.white,
+    return SliverToBoxAdapter(
+      child: Container(
+        width: double.infinity,
+        color: AppColors.primaryWhiteColor,
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: <Widget>[
+            // 头像
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: ClipOval(
+                child: Image.asset('images/avatar_placehold_gray.png'),
               ),
             ),
-          ),
-        ],
+
+            Container(
+              width: 80.w,
+              height: 30.w,
+              margin: const EdgeInsets.only(top: 24),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                border: Border.all(width: 0.5, color: AppColors.primaryBgColor),
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: const BaseTextWidget(
+                '点击登录',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

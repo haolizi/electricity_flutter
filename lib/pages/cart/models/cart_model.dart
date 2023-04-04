@@ -1,8 +1,3 @@
-/*
- * -------购物车-------
- */
-
-// 添加商品
 class CartInfoModel {
   String goodsId;
   String goodsName;
@@ -11,26 +6,30 @@ class CartInfoModel {
   String image;
   bool isCheck;
 
-  CartInfoModel(
-      {this.goodsId, this.goodsName, this.count, this.price, this.image, this.isCheck});
+  CartInfoModel({
+    required this.goodsId,
+    required this.goodsName,
+    required this.count,
+    required this.price,
+    required this.image,
+    required this.isCheck,
+  });
 
-  CartInfoModel.fromJson(Map<String, dynamic> json) {
-    goodsId = json['goodsId'];
-    goodsName = json['goodsName'];
-    count = json['count'];
-    price = json['price'];
-    image = json['image'];
-    isCheck = json['isCheck'];
-  }
+  factory CartInfoModel.fromJson(Map<String, dynamic> json) => CartInfoModel(
+        goodsId: json['goodsId'],
+        goodsName: json['goodsName'],
+        count: json['count'],
+        price: json['price'],
+        image: json['image'],
+        isCheck: json['isCheck'],
+      );
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['goodsId'] = this.goodsId;
-    data['goodsName'] = this.goodsName;
-    data['count'] = this.count;
-    data['price'] = this.price;
-    data['image'] = this.image;
-    data['isCheck'] = this.isCheck;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+        'goodsId': goodsId,
+        'goodsName': goodsName,
+        'count': count,
+        'price': price,
+        'image': image,
+        'isCheck': isCheck,
+      };
 }

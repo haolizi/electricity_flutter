@@ -1,107 +1,114 @@
-/*
- * -------首页-------
- * 推荐列表
- */
-
+import 'package:electricity_flutter/common/page/base_text_style.dart';
+import 'package:electricity_flutter/common/utils/color.dart';
+import 'package:electricity_flutter/pages/detail/pages/detail_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_01/config/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluro/fluro.dart';
-import 'package:provider/provider.dart';
-import '../providers/home_provider.dart';
-import '../../../config/routers/router_application.dart';
-import '../../../config/image_widget.dart';
+import 'package:get/get.dart';
 
-class RecommendInfoWidget extends StatelessWidget {
-  const RecommendInfoWidget({Key key}) : super(key: key);
+import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/utils/screen_utils.dart';
+import '../models/home_content_model.dart';
+
+class HomeRecommendWidget extends StatelessWidget {
+  const HomeRecommendWidget({Key? key, required this.recommend})
+      : super(key: key);
+  final List<Recommend> recommend;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeContentProvider>(
-        builder: (BuildContext context, value, child) {
-      return Container(
-        margin: EdgeInsets.only(top: 5),
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.only(top: 5),
+        color: Colors.white,
         child: Column(
-          children: <Widget>[
+          children: [
             _titleWidget(),
-            _recommentList(context, value.recommendList),
+            _goodsListWidget(recommend),
           ],
         ),
-      );
-    });
+      ),
+    );
   }
 
-  // 标题
   Widget _titleWidget() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      padding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(bottom: BorderSide(width: 0.5, color: Colors.black12)),
-      ),
+    return Padding(
+      padding: const EdgeInsets.all(10),
       child: Row(
-        children: <Widget>[
+        children: [
           Container(
             width: 3,
-            color: KColor.themeColor,
-            margin: EdgeInsets.only(right: 10),
-            child: Text(''),
+            height: 14,
+            color: AppColors.themeColor,
+            margin: const EdgeInsets.only(right: 5),
           ),
-          Text(
-            '商品推荐',
-            style: TextStyle(fontSize: 16),
+          BaseTextWidget(
+            "商品推荐",
+            style: baseTextStyle(
+              color: AppColors.themeColor,
+            ),
           ),
         ],
       ),
     );
   }
 
-  // 列表
-  Widget _recommentList(BuildContext context, recommentList) {
-    return Container(
-      height: 180,
+  Widget _goodsListWidget(List<Recommend>? goodsList) {
+    if (goodsList == null) return const SizedBox();
+    double itemWd = (screenGetWidth() - 20.w) / 3;
+    return SizedBox(
+      height: itemWd + 50,
       child: ListView.builder(
-        itemCount: recommentList.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return _item(context, index, recommentList);
+        itemCount: goodsList.length,
+        itemBuilder: (BuildContext context, int index) {
+          Recommend model = goodsList[index];
+          return GestureDetector(
+            onTap: () {
+              Get.to(DetailPage(model.goodsId));
+            },
+            child: Container(
+              width: itemWd,
+              decoration: const BoxDecoration(
+                border: Border(
+                  right: BorderSide(width: 1, color: AppColors.primaryBgColor),
+                  top: BorderSide(width: 1, color: AppColors.primaryBgColor),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  BaseCachedNetworkImage(
+                    url: model.image,
+                    w: itemWd,
+                    h: itemWd,
+                  ),
+                  _priceWidget(model.price, model.mallPrice),
+                ],
+              ),
+            ),
+          );
         },
       ),
     );
   }
 
-  // 列表item
-  Widget _item(context, index, recommentList) {
-    return InkWell(
-      onTap: () {
-        ApplicationRouter.router.navigateTo(
-            context, 'detail?id=${recommentList[index]['goodsId']}',
-            transition: TransitionType.native);
-      },
-      child: Container(
-        width: ScreenUtil().setWidth(250),
-        padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border(left: BorderSide(width: 0.5, color: Colors.black12)),
-        ),
-        child: Column(
-          children: <Widget>[
-            ImageWidget(
-              url: recommentList[index]['image'],
-              w: ScreenUtil().setWidth(250),
-              defImagePath: 'images/square_placehold.png',
-            ),
-            Text('￥${recommentList[index]['mallPrice']}'),
-            Text(
-              '￥${recommentList[index]['price']}',
-              style: TextStyle(
-                  decoration: TextDecoration.lineThrough, color: Colors.grey),
-            ),
-          ],
+  Widget _priceWidget(double price, double mallPrice) {
+    return Column(children: [
+      BaseTextWidget(
+        "￥$price",
+        style: baseTextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
         ),
       ),
-    );
+      BaseTextWidget(
+        "￥$mallPrice",
+        style: baseTextStyle(
+          fontSize: 12,
+          color: AppColors.primarySubTitleColor153,
+          decoration: TextDecoration.lineThrough,
+        ),
+      ),
+    ]);
   }
 }

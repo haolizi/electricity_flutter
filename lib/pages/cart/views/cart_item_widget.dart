@@ -1,28 +1,29 @@
-/*
- * -------购物车页面-------
- * 每个item
- */
-
+import 'package:electricity_flutter/common/page/base_text_style.dart';
+import 'package:electricity_flutter/common/utils/color.dart';
+import 'package:electricity_flutter/pages/cart/logics/cart_logic.dart';
+import 'package:electricity_flutter/pages/cart/views/cart_item_calculate_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_01/pages/cart/models/cart_model.dart';
-import '../../../config/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'car_item_calculate_widget.dart';
-import 'package:provider/provider.dart';
-import '../providers/cart_provider.dart';
+import 'package:get/get.dart';
 
-class CartItem extends StatelessWidget {
+import '../../../common/page/base_placeholder_img.dart';
+import '../models/cart_model.dart';
+
+class CartItemWidget extends StatelessWidget {
+  const CartItemWidget({Key? key, required this.model}) : super(key: key);
   final CartInfoModel model;
-  const CartItem(this.model);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      decoration: const BoxDecoration(
+        color: AppColors.primaryWhiteColor,
         border: Border(
-          bottom: BorderSide(width: 1, color: Colors.black12),
+          bottom: BorderSide(
+            width: 1,
+            color: AppColors.primaryBgColor,
+          ),
         ),
       ),
       child: Row(
@@ -38,41 +39,38 @@ class CartItem extends StatelessWidget {
 
   // 复选按钮
   Widget _checkBtn(context) {
-    return Container(
-      child: Checkbox(
-        value: model.isCheck,
-        activeColor: KColor.themeColor,
-        onChanged: (bool isCheck) {
-          model.isCheck = isCheck;
-          Provider.of<CartProvider>(context, listen: false)
-              .changeCheckState(model);
-        },
-      ),
+    return Checkbox(
+      value: model.isCheck,
+      activeColor: AppColors.themeColor,
+      onChanged: (isCheck) {
+        CartLogic logic = Get.find();
+        logic.changeCheckState(model.goodsId);
+      },
     );
   }
 
   // 商品图片
   Widget _goodImage() {
     return Container(
-      width: ScreenUtil().setWidth(150),
-      padding: EdgeInsets.all(3.0),
+      width: 75.w,
+      padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.black12),
+        border: Border.all(width: 1, color: AppColors.primaryBgColor),
       ),
-      child: Image.network(model.image),
+      child: BaseCachedNetworkImage(url: model.image),
     );
   }
 
   // 商品名称
   Widget _goodName() {
     return Container(
-      width: ScreenUtil().setWidth(320),
-      padding: EdgeInsets.all(10),
+      width: 160.w,
+      padding: const EdgeInsets.all(10),
       alignment: Alignment.topLeft,
       child: Column(
         children: <Widget>[
-          Text(model.goodsName),
-          CartCalculate(model), // 加减按钮
+          BaseTextWidget(model.goodsName),
+          CartCalculateWidget(model: model), // 加减按钮
         ],
       ),
     );
@@ -81,23 +79,23 @@ class CartItem extends StatelessWidget {
   // 商品价格
   Widget _goodPrice(BuildContext context) {
     return Container(
-      width: ScreenUtil().setWidth(140),
+      width: 70.w,
       alignment: Alignment.centerRight,
       child: Column(
         children: <Widget>[
-          Text(
+          BaseTextWidget(
             '￥${model.price}',
           ),
 
           // 删除按钮
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             child: InkWell(
               onTap: () async {
-                await Provider.of<CartProvider>(context, listen: false)
-                    .deleteOneGood(model.goodsId);
+                CartLogic logic = Get.find();
+                logic.deleteOneGood(model.goodsId);
               },
-              child: Icon(
+              child: const Icon(
                 Icons.delete_forever,
                 color: Colors.black26,
                 size: 28,

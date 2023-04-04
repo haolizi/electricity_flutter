@@ -1,50 +1,51 @@
-/*
- * -------购物车首页-------
- */
+import 'package:electricity_flutter/common/page/base_scaffold.dart';
+import 'package:electricity_flutter/pages/cart/logics/cart_logic.dart';
+import 'package:electricity_flutter/pages/cart/views/cart_item_widget.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/cart_provider.dart';
-import '../views/cart_item_widget.dart';
 import '../views/cart_bottom_widget.dart';
 
 class CartPage extends StatefulWidget {
-  CartPage({Key key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
-  _CartPageState createState() => _CartPageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _CartPageState extends State<CartPage>
+    with AutomaticKeepAliveClientMixin {
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _getCartInfo(context),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Consumer<CartProvider>(
-              builder: (BuildContext context, child, value) {
-                return Stack(
-                  children: <Widget>[
-                    ListView.builder(
-                      itemCount: child.infoList.length,
-                      itemBuilder: (context, index) {
-                        return CartItem(child.infoList[index]);
-                      },
-                    ),
-                    Positioned(bottom: 0, left: 0, child: CartBottom())
-                  ],
-                );
-              },
-            );
-          } else {
-            return Text('暂无数据');
-          }
-        });
+  void initState() {
+    super.initState();
   }
 
-  Future<String> _getCartInfo(BuildContext context) async {
-    await Provider.of<CartProvider>(context, listen: false).getCartInfo();
-    return '加载完成';
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return BaseScaffold(
+      title: "购物车",
+      leadType: AppBarBackType.none,
+      body: GetBuilder<CartLogic>(builder: (logic) {
+        return Stack(
+          children: <Widget>[
+            ListView.builder(
+              itemCount: logic.infoList.length,
+              itemBuilder: (context, index) {
+                return CartItemWidget(model: logic.infoList[index]);
+              },
+            ),
+            const Positioned(
+              bottom: 0,
+              left: 0,
+              child: CartBottomWidget(),
+            ),
+          ],
+        );
+      }),
+    );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

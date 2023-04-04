@@ -1,51 +1,48 @@
-/*
- * -------首页-------
- * banner
- */
+import 'package:card_swiper/card_swiper.dart';
+import 'package:electricity_flutter/common/utils/color.dart';
+import 'package:flutter/cupertino.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:fluro/fluro.dart';
-import 'package:provider/provider.dart';
-import '../providers/home_provider.dart';
-import '../../../config/routers/router_application.dart';
-import '../../../config/color.dart';
-import '../../../config/image_widget.dart';
+import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/utils/screen_utils.dart';
+import '../models/home_content_model.dart';
 
 class HomeBannerWidget extends StatelessWidget {
-  const HomeBannerWidget({Key key}) : super(key: key);
+  const HomeBannerWidget({Key? key, required this.bannerList})
+      : super(key: key);
+  final List<Slide> bannerList;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeContentProvider>(
-        builder: (BuildContext context, value, child) {
-      double screenWidth = MediaQuery.of(context).size.width;
-      return Container(
-        height: 333 / 750 * screenWidth,
-        width: ScreenUtil().setWidth(750),
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: 333 / 750 * screenGetWidth(),
         child: Swiper(
           autoplay: true,
-          itemCount: value.bannerList.length,
+          itemCount: bannerList.length,
           itemBuilder: (BuildContext context, int index) {
-            String imageUrl = value.bannerList[index]['image'];
-            return InkWell(
+            String imageUrl = bannerList[index].image;
+            return GestureDetector(
               onTap: () {
-                ApplicationRouter.router.navigateTo(
-                    context, 'detail?id=${value.bannerList[index]['goodsId']}',
-                    transition: TransitionType.native);
+                // ApplicationRouter.router.navigateTo(
+                //     context, 'detail?id=${value.bannerList[index]['goodsId']}',
+                //     transition: TransitionType.native);
               },
-              child: ImageWidget(
-                  url: imageUrl,
-                  w: ScreenUtil().setWidth(750),
-                  defImagePath: 'images/home/banner_placehold.png'),
+              child: BaseCachedNetworkImage(
+                url: imageUrl,
+                w: screenGetWidth(),
+                defImagePath: 'images/banner_placehold.png',
+              ),
             );
           },
-          pagination: SwiperPagination(
-            builder: DotSwiperPaginationBuilder(activeColor: KColor.themeColor),
+          pagination: const SwiperPagination(
+            builder: DotSwiperPaginationBuilder(
+              activeColor: AppColors.themeColor,
+              size: 8.0,
+              activeSize: 8.0,
+            ),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

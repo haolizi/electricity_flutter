@@ -1,44 +1,48 @@
-/*
- * -------首页-------
- * 楼层小模块
- */
-
+import 'package:electricity_flutter/pages/detail/pages/detail_page.dart';
+import 'package:electricity_flutter/pages/home/models/home_content_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluro/fluro.dart';
-import 'home_adbanner_widget.dart';
-import '../../../config/routers/router_application.dart';
+import 'package:get/get.dart';
+
+import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/utils/screen_utils.dart';
 
 class FloorItemWidget extends StatelessWidget {
-  final String topImage;
-  final List floorGoodsList;
-  const FloorItemWidget({Key key, this.topImage, this.floorGoodsList}) : super(key: key);
+  const FloorItemWidget({Key? key, this.topImageModel, this.floorGoodsList})
+      : super(key: key);
+  final AdvertesPicture? topImageModel;
+  final List<Floor>? floorGoodsList;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 5),
+      padding: const EdgeInsets.only(top: 5),
       child: Column(
-        children: <Widget>[
-          AdBannerWidget(imageUrl: topImage),
-          _firstRow(context),
-          _otherGoods(context)
-        ],
+        children: <Widget>[_imgWidget(), _firstRow(), _otherGoods()],
       ),
     );
   }
 
+  Widget _imgWidget() {
+    if (topImageModel == null) return const SizedBox();
+    return BaseCachedNetworkImage(
+      url: topImageModel!.pictureAddress,
+      w: screenGetWidth(),
+      onTap: () {},
+    );
+  }
+
   // 第一排是左边一张大图，右边两张小图
-  Widget _firstRow(context) {
+  Widget _firstRow() {
+    if (floorGoodsList == null) return const SizedBox();
     return Container(
-      padding: EdgeInsets.only(top: 5),
+      padding: const EdgeInsets.only(top: 5),
       child: Row(
         children: <Widget>[
-          _goodsItem(context, floorGoodsList[0]),
+          _goodsItem(floorGoodsList![0]),
           Column(
             children: <Widget>[
-              _goodsItem(context, floorGoodsList[1]),
-              _goodsItem(context, floorGoodsList[2])
+              _goodsItem(floorGoodsList![1]),
+              _goodsItem(floorGoodsList![2])
             ],
           ),
         ],
@@ -47,24 +51,28 @@ class FloorItemWidget extends StatelessWidget {
   }
 
   // 第二排是左右各一张小图
-  Widget _otherGoods(context) {
+  Widget _otherGoods() {
+    if (floorGoodsList == null) return const SizedBox();
     return Row(
       children: <Widget>[
-        _goodsItem(context, floorGoodsList[3]),
-        _goodsItem(context, floorGoodsList[4])
+        _goodsItem(floorGoodsList![3]),
+        _goodsItem(floorGoodsList![4])
       ],
     );
   }
 
   // 商品item
-  Widget _goodsItem(context, Map goods) {
-    return Container(
-      width: ScreenUtil().setWidth(375),
-      child: InkWell(
+  Widget _goodsItem(Floor goods) {
+    return SizedBox(
+      width: screenGetWidth() / 2,
+      child: GestureDetector(
         onTap: () {
-          ApplicationRouter.router.navigateTo(context, 'detail?id=${goods['goodsId']}', transition: TransitionType.native);
+          Get.to(DetailPage(goods.goodsId));
         },
-        child: Image.network(goods['image']),
+        child: BaseCachedNetworkImage(
+          url: goods.image,
+          // onTap: () {},
+        ),
       ),
     );
   }

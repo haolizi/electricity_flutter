@@ -1,63 +1,67 @@
-/*
- * -------首页-------
- * 小分类
- */
-
+import 'package:electricity_flutter/main/main_tab_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../providers/home_provider.dart';
-import 'package:provider/provider.dart';
-import '../../../config/image_widget.dart';
-import '../../../config/routers/tab_index_provider.dart';
+import 'package:get/get.dart';
+
+import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/page/base_text_style.dart';
+import '../../../common/utils/screen_utils.dart';
+import '../../category/logic/category_logic.dart';
+import '../models/home_content_model.dart';
 
 class HomeCategoryWidget extends StatelessWidget {
-  const HomeCategoryWidget({Key key}) : super(key: key);
+  HomeCategoryWidget({Key? key, required this.categoryList}) : super(key: key);
+  late List<Category> categoryList;
 
   @override
   Widget build(BuildContext context) {
-    double height = 0.0;
-    List categoryList =
-        Provider.of<HomeContentProvider>(context, listen: false).categoryList;
-    height = ((categoryList.length - 1) ~/ 5 + 1) * 78.toDouble();
+    if (categoryList.length > 4) {
+      categoryList = categoryList.sublist(0, 4);
+    }
 
-    return Container(
-      height: ScreenUtil().setWidth(2 * height - 30),
-      padding: EdgeInsets.all(ScreenUtil().setWidth(3.0)),
-      color: Colors.white,
-      child: GridView.count(
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 5,
-        padding: EdgeInsets.all(5.0),
-        children: _listWidget(context, categoryList),
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.only(top: 5, bottom: 5),
+        padding: const EdgeInsets.only(top: 10),
+        height: screenGetWidth() / 5 * 1.2,
+        color: Colors.white,
+        child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: categoryList.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return _itemWidget(index);
+            }),
       ),
     );
   }
 
-  List<Widget> _listWidget(BuildContext context, List<Map> categoryList) {
-    return categoryList.map((item) => _categoryItem(context, item)).toList();
-  }
-}
+  Widget _itemWidget(int index) {
+    Category categoryModel = categoryList[index];
+    return GestureDetector(
+      onTap: () {
+        CategoryLogic categoryLogic = Get.put(CategoryLogic());
+        categoryLogic.selectCategorySection(index);
 
-Widget _categoryItem(BuildContext context, item) {
-  return InkWell(
-    onTap: () {
-      Provider.of<CurrentIndexProvider>(context, listen: false)
-          .changeTabIndex(1);
-    },
-    child: Column(
-      children: <Widget>[
-        ImageWidget(
-          url: item['image'],
-          w: ScreenUtil().setWidth(80),
-          h: ScreenUtil().setWidth(80),
-          defImagePath: 'images/home/category_placehold.png',
-        ),
-        SizedBox(height: 5),
-        Text(
-          item['mallCategoryName'],
-          style: TextStyle(fontSize: 13),
-        ),
-      ],
-    ),
-  );
+        MainTabLogic tabLogic = Get.find();
+        tabLogic.changeBottomBarIndex(1);
+      },
+      child: Column(
+        children: <Widget>[
+          BaseCachedNetworkImage(
+            url: categoryModel.image,
+            w: 50.w,
+            h: 50.w,
+          ),
+          const SizedBox(height: 5),
+          BaseTextWidget(
+            categoryModel.mallCategoryName,
+            style: baseTextStyle(fontSize: 13),
+          ),
+        ],
+      ),
+    );
+  }
 }

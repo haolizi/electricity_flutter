@@ -1,77 +1,145 @@
-/*
- * -------首页-------
- */
-
+import 'package:electricity_flutter/common/page/base_scaffold.dart';
+import 'package:electricity_flutter/common/page/base_text_style.dart';
+import 'package:electricity_flutter/common/utils/color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
-import '../../../config/color.dart';
-import '../providers/home_provider.dart';
+import 'package:get/get.dart';
+import 'package:pull_to_refresh_plus/pull_to_refresh_plus.dart';
+
+import '../../../common/page/base_refresh_footer.dart';
+import '../logics/home_logic.dart';
+import '../models/home_content_model.dart';
+import '../models/home_goods_list_model.dart';
+import '../views/home_ad_banner_widget.dart';
 import '../views/home_banner_widget.dart';
 import '../views/home_category_widget.dart';
-import '../views/home_leader_widget.dart';
-import '../views/home_recommend_widget.dart';
 import '../views/home_floor_widget.dart';
 import '../views/home_goods_list_widget.dart';
+import '../views/home_recommend_widget.dart';
+import '../views/home_shop_info_widget.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  late HomeContentLogic contentLogic;
+
+  @override
+  void initState() {
+    contentLogic = Get.put(HomeContentLogic());
+    _onRefresh();
+
+    super.initState();
+  }
+
+  Future _onRefresh() async {
+    await contentLogic.getHomeContentInfo();
+  }
+
+  Future _loadMore() async {
+    await contentLogic.getHomeList(false);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: KColor.bgColor,
-      body: FutureBuilder(
-        future: _getDatasInfo(context),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return EasyRefresh(
-              footer: ClassicalFooter(
-                textColor: KColor.themeColor,
-                infoColor: KColor.themeColor,
-                loadText: '上拉加载更多',
-                loadReadyText: '松开后开始加载',
-                loadingText: '正在加载',
-                loadedText: '加载完成',
-                noMoreText: '没有更多内容了',
-              ),
-              child: ListView(
-                children: <Widget>[
-                  HomeBannerWidget(), // banner
-                  HomeCategoryWidget(), // 小分类
-                  LeaderInfoWidget(), // 店长信息
-                  RecommendInfoWidget(), // 推荐列表
-                  FloorInfoWidget(), // 楼层
-                  GoodsListWidget(), // 商品列表
-                ],
-              ),
+    super.build(context);
+    return BaseScaffold(
+      title: "某知名电商",
+      leadType: AppBarBackType.none,
+      body: GetBuilder<HomeContentLogic>(builder: (logic) {
+        HomeContentModel contentModel = logic.homeContentModel;
+        List<GoodsModel> goodsList = logic.goodsList;
+        if (contentModel.category == null) {
+          return const SizedBox();
+        }
+        return SmartRefresher(
+          controller: logic.refreshController,
+          header: const WaterDropHeader(),
+          footer: const BaseRefreshFooter(),
+          onRefresh: _onRefresh,
+          onLoading: _loadMore,
+          enablePullUp: true,
+          child: _scrollView(contentModel, goodsList),
+        );
+      }),
+    );
+  }
 
-              // 加载更多
-              onLoad: () async {
-                Provider.of<HomeListProvider>(context, listen: false)
-                    .getListInfo();
-              },
-            );
-          } else {
-            return Center(
-              child: SpinKitFadingCircle(color: KColor.themeColor, size: 50.0),
-            );
-          }
-        },
+  Widget _scrollView(
+      HomeContentModel contentModel, List<GoodsModel> goodsList) {
+    return CustomScrollView(
+      slivers: [
+        /// banner
+        HomeBannerWidget(bannerList: contentModel.slides!),
+
+        /// 分类（最多显示4个）
+        HomeCategoryWidget(categoryList: contentModel.category!),
+
+        /// 店铺信息
+        HomeShopInfoWidget(
+          infoModel: contentModel.shopInfo!,
+          adPicModel: contentModel.advertesPicture!,
+        ),
+
+        /// 会员积分广告
+        HomeAdWidget(contentModel: contentModel),
+
+        /// 推荐商品
+        HomeRecommendWidget(recommend: contentModel.recommend!),
+
+        /// 三层楼
+        FloorInfoWidget(contentModel: contentModel),
+
+        /// 底部商品列表头部
+        _goodsHeaderWidget(),
+
+        /// 底部商品列表
+        HomeGoodsListWidget(goodsList: goodsList),
+      ],
+    );
+  }
+
+  Widget _goodsHeaderWidget() {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 6, bottom: 6),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 18,
+              height: 18,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(right: 5),
+              decoration: BoxDecoration(
+                color: AppColors.themeColor,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: BaseTextWidget(
+                "火",
+                style: baseTextStyle(
+                  color: AppColors.primaryWhiteColor,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            BaseTextWidget(
+              "火爆专区",
+              style: baseTextStyle(
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  // 获取首页上半部分接口homePageContent
-  Future _getDatasInfo(BuildContext context) async {
-    await Provider.of<HomeContentProvider>(context, listen: false)
-        .getContentInfo();
-    return '加载完成';
-  }
+  @override
+  bool get wantKeepAlive => true;
 }
