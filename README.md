@@ -7,7 +7,7 @@
 electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter电商项目，仅供大家交流学习。
 
 ### 下载体验
-![image](images/scan_download.png)
+<img src="images/scan_download.png" width="50%">
 
 ### 📸 预览
 
