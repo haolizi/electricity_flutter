@@ -94,17 +94,16 @@ class CartBottomWidget extends StatelessWidget {
   // 结算按钮
   Widget _buyBtn(context, allGoodsCount) {
     return Container(
-      width: 80.w,
+      width: 80,
       padding: const EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: () {
           if (allGoodsCount > 0) {
-            // ApplicationRouter.router.navigateTo(context, 'order/pay',
-            //     transition: TransitionType.native);
+            /// TODO 结算
           }
         },
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: AppColors.themeColor,
@@ -113,7 +112,7 @@ class CartBottomWidget extends StatelessWidget {
           child: BaseTextWidget(
             '结算($allGoodsCount)',
             style: baseTextStyle(
-              color: AppColors.primaryWhiteColor,
+              color: AppColors.white,
             ),
           ),
         ),

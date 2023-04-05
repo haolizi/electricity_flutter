@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage>
               child: BaseTextWidget(
                 "火",
                 style: baseTextStyle(
-                  color: AppColors.primaryWhiteColor,
+                  color: AppColors.white,
                   fontSize: 14,
                 ),
               ),

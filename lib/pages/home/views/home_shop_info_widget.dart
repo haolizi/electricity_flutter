@@ -22,7 +22,7 @@ class HomeShopInfoWidget extends StatelessWidget {
           _launchUrl(infoModel.leaderPhone);
         },
         child: Container(
-          color: AppColors.primaryWhiteColor,
+          color: AppColors.white,
           padding: const EdgeInsets.only(top: 5, bottom: 5),
           child: Column(
             children: [

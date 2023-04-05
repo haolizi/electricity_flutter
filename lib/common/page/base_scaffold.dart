@@ -18,7 +18,7 @@ class BaseScaffold extends Scaffold {
     Brightness brightness = Brightness.light,
     Widget? floatingActionButton,
     Color appBarBackgroundColor = AppColors.themeColor,
-    Color titleColor = AppColors.primaryWhiteColor,
+    Color titleColor = AppColors.white,
     bool centerTitle = true,
     FloatingActionButtonLocation? floatingActionButtonLocation,
     bool isResizeToAvoidBottomInset = true, // 输入框是否随键盘顶起

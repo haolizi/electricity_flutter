@@ -1,3 +1,7 @@
+/*
+ * 我的页面
+ */
+
 import 'package:electricity_flutter/common/page/base_scaffold.dart';
 import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
@@ -38,7 +42,7 @@ class _MinePageState extends State<MinePage>
       child: Container(
         margin: const EdgeInsets.only(top: 10),
         decoration: const BoxDecoration(
-          color: AppColors.primaryWhiteColor,
+          color: AppColors.white,
           border: Border(
             bottom: BorderSide(width: 1, color: AppColors.primaryBgColor),
           ),

@@ -63,7 +63,7 @@ class _CategoryLeftListWidgetState extends State<CategoryLeftListWidget> {
         height: 50,
         decoration: BoxDecoration(
           color:
-              isClick ? AppColors.primaryBgColor : AppColors.primaryWhiteColor,
+              isClick ? AppColors.primaryBgColor : AppColors.white,
           border: const Border(
             bottom: BorderSide(
               width: 1,

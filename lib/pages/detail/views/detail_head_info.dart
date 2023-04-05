@@ -36,7 +36,7 @@ class DetailHeadInfoWidget extends StatelessWidget {
     return Container(
       height: 20,
       padding: const EdgeInsets.symmetric(horizontal: 14),
-      color: AppColors.primaryWhiteColor,
+      color: AppColors.white,
       width: double.infinity,
       child: BaseTextWidget(
         goodInfo.goodsName,
@@ -48,7 +48,7 @@ class DetailHeadInfoWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 24,
-      color: AppColors.primaryWhiteColor,
+      color: AppColors.white,
       padding: const EdgeInsets.fromLTRB(14, 6, 14, 0),
       child: BaseTextWidget(
         '编号：${goodInfo.goodsSerialNumber}',
@@ -64,7 +64,7 @@ class DetailHeadInfoWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 40,
-      color: AppColors.primaryWhiteColor,
+      color: AppColors.white,
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
       child: Row(
         children: <Widget>[
@@ -93,7 +93,7 @@ class DetailHeadInfoWidget extends StatelessWidget {
       alignment: Alignment.centerLeft,
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14),
-      color: AppColors.primaryWhiteColor,
+      color: AppColors.white,
       child: BaseTextWidget(
         '说明：>急速送达>正品保证',
         style: baseTextStyle(

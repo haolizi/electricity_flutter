@@ -26,7 +26,7 @@ class GoodsItemWidget extends StatelessWidget {
       },
       child: Container(
         width: itemWd ?? screenGetWidth() / 2,
-        color: AppColors.primaryWhiteColor,
+        color: AppColors.white,
         padding: const EdgeInsets.all(5.0),
         child: Column(
           children: <Widget>[

@@ -39,7 +39,7 @@ class _CategoryPageState extends State<CategoryPage>
     return BaseScaffold(
       title: "商品分类",
       leadType: AppBarBackType.none,
-      backgroundColor: AppColors.primaryWhiteColor,
+      backgroundColor: AppColors.white,
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

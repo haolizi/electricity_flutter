@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:electricity_flutter/config/key_config.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -56,8 +57,7 @@ class CartLogic extends GetxController {
 
     update();
 
-    String cartString = json.encode(infoList).toString();
-    _storage.write('cartInfo', cartString);
+    writeToCache();
   }
 
   // 清空缓存
@@ -92,8 +92,7 @@ class CartLogic extends GetxController {
     }
 
     update();
-    String cartString = json.encode(infoList).toString();
-    _storage.write('cartInfo', cartString);
+    writeToCache();
   }
 
   // 商品复选框点击事件
@@ -125,8 +124,7 @@ class CartLogic extends GetxController {
     }
 
     update();
-    String cartString = json.encode(infoList).toString();
-    _storage.write('cartInfo', cartString);
+    writeToCache();
   }
 
   // 全选按钮点击事件
@@ -135,8 +133,7 @@ class CartLogic extends GetxController {
       infoList[i].isCheck = isCheck;
     }
 
-    String cartString = json.encode(infoList).toString();
-    _storage.write('cartInfo', cartString);
+    writeToCache();
     await getCartInfo();
   }
 
@@ -165,8 +162,7 @@ class CartLogic extends GetxController {
     }
 
     update();
-    String cartString = json.encode(infoList).toString();
-    _storage.write('cartInfo', cartString);
+    writeToCache();
   }
 
   // 取出缓存信息
@@ -191,8 +187,8 @@ class CartLogic extends GetxController {
 
   List<CartInfoModel> readFromCache() {
     List<CartInfoModel> tempList = [];
-    if (_storage.read('cartInfo') != null) {
-      String cartString = _storage.read('cartInfo');
+    if (_storage.read(CacheKey.cartCacheKey) != null) {
+      String cartString = _storage.read(CacheKey.cartCacheKey);
       List<Map<String, dynamic>> list =
           (json.decode(cartString.toString()) as List).cast();
 
@@ -200,5 +196,10 @@ class CartLogic extends GetxController {
           List<CartInfoModel>.from(list.map((x) => CartInfoModel.fromJson(x)));
     }
     return tempList;
+  }
+
+  writeToCache() {
+    String cartString = json.encode(infoList).toString();
+    _storage.write(CacheKey.cartCacheKey, cartString);
   }
 }

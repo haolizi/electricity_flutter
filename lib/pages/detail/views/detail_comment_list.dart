@@ -33,7 +33,7 @@ class DetailCommentsWidget extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
       width: screenGetWidth(),
       decoration: const BoxDecoration(
-        color: AppColors.primaryWhiteColor,
+        color: AppColors.white,
         border: Border(
           bottom: BorderSide(
             width: 1.0,

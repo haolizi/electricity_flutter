@@ -4,7 +4,10 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.0.5-blue.svg)](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#windows)
 
 ### 简介
-electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter电商项目，支持安卓和iOS，仅供大家交流学习。
+electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter电商项目，仅供大家交流学习。
+
+### 下载体验
+![image](images/scan_download.png)
 
 ### 📸 预览
 
@@ -14,13 +17,12 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 |![image](images/screen4.png)|![image](images/screen5.png)|![image](images/screen6.png)|![image](images/screen7.png)|
 |![image](images/screen8.png)|![image](images/screen9.jpg)|![image](images/screen10.png)||
 
-### 目前实现模块
+### 实现模块
 * [x] 首页列表
 * [x] 商品详情页
 * [x] 分类页
 * [x] 购物车页面
 * [x] 个人中心
-* [x] 订单模块
 
 ### 版本记录
 * 2023-04-04 升级flutter3.0，重构
@@ -53,6 +55,10 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 或者尝试下科学上网。
 
 ### 环境
+................................................
+最好使用和我一样的flutter版本，sdk下载地址：
+https://flutter.cn/docs/development/tools/sdk/releases?tab=macos
+................................................
 ```
 flutter doctor -v
 [✓] Flutter (Channel stable, 3.0.5, on macOS 12.1 21C52 darwin-arm, locale zh-Hans-CN)
@@ -65,9 +71,5 @@ flutter doctor -v
     • Pub download mirror https://pub.flutter-io.cn
     • Flutter download mirror https://storage.flutter-io.cn
     
-........................
-最好使用和我一样的flutter版本，sdk下载地址：
-https://flutter.cn/docs/development/tools/sdk/releases?tab=macos
-........................
 ```
 

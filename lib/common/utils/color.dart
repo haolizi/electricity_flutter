@@ -18,7 +18,7 @@ class AppColors {
   static const Color primaryYellowColor = Color.fromRGBO(248, 171, 4, 1.0);
 
   /// 白色
-  static const Color primaryWhiteColor = Colors.white;
+  static const Color white = Colors.white;
 
   static const Color primarySubTitleColor242 =
   Color.fromRGBO(242, 242, 242, 1.0);

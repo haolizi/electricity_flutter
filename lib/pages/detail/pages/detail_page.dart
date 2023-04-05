@@ -100,7 +100,7 @@ class _DetailPageState extends State<DetailPage> {
         maxHeight: 50,
         child: Container(
           height: 50,
-          color: AppColors.primaryWhiteColor,
+          color: AppColors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,

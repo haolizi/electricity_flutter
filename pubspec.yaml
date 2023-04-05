@@ -47,6 +47,7 @@ dependencies:
 #  animations: ^2.0.7
   get_storage: ^2.1.1
   url_launcher: ^6.1.10
+  bot_toast: ^4.0.3
 
   flutter_ume: 1.0.2+1 # 调试工具
   flutter_ume_kit_ui: ^1.0.0

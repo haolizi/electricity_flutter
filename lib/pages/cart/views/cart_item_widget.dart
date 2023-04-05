@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../common/page/base_placeholder_img.dart';
+import '../../detail/pages/detail_page.dart';
 import '../models/cart_model.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -15,24 +16,29 @@ class CartItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      decoration: const BoxDecoration(
-        color: AppColors.primaryWhiteColor,
-        border: Border(
-          bottom: BorderSide(
-            width: 1,
-            color: AppColors.primaryBgColor,
+    return InkWell(
+      onTap: () {
+        Get.to(DetailPage(model.goodsId));
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        decoration: const BoxDecoration(
+          color: AppColors.white,
+          border: Border(
+            bottom: BorderSide(
+              width: 1,
+              color: AppColors.primaryBgColor,
+            ),
           ),
         ),
-      ),
-      child: Row(
-        children: <Widget>[
-          _checkBtn(context),
-          _goodImage(),
-          _goodName(), //商品名称和加减按钮
-          _goodPrice(context),
-        ],
+        child: Row(
+          children: <Widget>[
+            _checkBtn(context),
+            _goodImage(),
+            _goodName(), //商品名称和加减按钮
+            _goodPrice(context),
+          ],
+        ),
       ),
     );
   }
@@ -68,6 +74,7 @@ class CartItemWidget extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       alignment: Alignment.topLeft,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           BaseTextWidget(model.goodsName),
           CartCalculateWidget(model: model), // 加减按钮

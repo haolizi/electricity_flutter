@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,8 +20,6 @@ import 'package:flutter_ume_kit_ui/components/touch_indicator/touch_indicator.da
 import 'package:flutter_ume_kit_ui/components/widget_detail_inspector/widget_detail_inspector.dart';
 import 'package:flutter_ume_kit_ui/components/widget_info_inspector/widget_info_inspector.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import 'common/helper/http/dio_utils.dart';
 import 'common/utils/global.dart';
@@ -45,7 +44,7 @@ void main() {
       ..register(Console())
       ..register(DioInspector(dio: HttpUtils.instance.dio));
     // After flutter_ume 0.3.0
-    runApp(const UMEWidget(child: MyApp(), enable: true));
+    runApp(const UMEWidget(enable: true, child: MyApp()));
   } else {
     runApp(const MyApp());
   }
@@ -59,6 +58,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  final botToastBuilder = BotToastInit();
   @override
   void initState() {
     super.initState();
@@ -66,6 +66,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     lockScreen();
     Global.init();
 
+    /// 购物车数据多处使用，所以在启动的时候注入依赖
     Get.put(CartLogic());
   }
 
@@ -78,10 +79,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       builder: (context, child) {
         return GetMaterialApp(
           builder: (BuildContext context, Widget? child) {
-            /// 不跟随系统字体变大变小
+            child = botToastBuilder(context, child);
             return MediaQuery(
+              /// 不跟随系统字体变大变小
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-              child: child!,
+              child: child,
             );
           },
           debugShowCheckedModeBanner: false,

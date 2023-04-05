@@ -1,3 +1,7 @@
+/*
+ * 我的页面-头部
+ */
+
 import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +15,7 @@ class MineHeadWidget extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         width: double.infinity,
-        color: AppColors.primaryWhiteColor,
+        color: AppColors.white,
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: <Widget>[

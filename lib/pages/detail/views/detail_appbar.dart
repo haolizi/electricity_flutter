@@ -64,13 +64,13 @@ class DetailAppBarWidgetState extends State<DetailAppBarWidget>
       },
       controller: tabController,
       tabs: _tabBarListWidget(),
-      labelColor: AppColors.primaryWhiteColor,
+      labelColor: AppColors.white,
       unselectedLabelColor: AppColors.primarySubTitleColor242,
       labelStyle: baseTextStyle(
         fontWeight: FontWeight.w500,
       ),
       unselectedLabelStyle: baseTextStyle(),
-      indicatorColor: AppColors.primaryWhiteColor,
+      indicatorColor: AppColors.white,
       indicatorSize: TabBarIndicatorSize.label,
     );
   }

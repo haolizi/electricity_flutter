@@ -65,7 +65,7 @@ class DetailBottomWidget extends StatelessWidget {
                   '加入购物车',
                   style: baseTextStyle(
                     fontSize: 16,
-                    color: AppColors.primaryWhiteColor,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -87,7 +87,7 @@ class DetailBottomWidget extends StatelessWidget {
                   '立即购买',
                   style: baseTextStyle(
                     fontSize: 16,
-                    color: AppColors.primaryWhiteColor,
+                    color: AppColors.white,
                   ),
                 ),
               ),

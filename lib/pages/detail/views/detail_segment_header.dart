@@ -42,7 +42,7 @@ class _SegmentHeaderWidgetState extends State<SegmentHeaderWidget>
           maxHeight: 50,
           minHeight: 50,
           child: Container(
-            color: AppColors.primaryWhiteColor,
+            color: AppColors.white,
             child: TabBar(
               controller: _tabController,
               tabs: _tabBarListWidget(),

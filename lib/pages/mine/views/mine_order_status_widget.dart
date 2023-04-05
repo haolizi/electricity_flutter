@@ -1,3 +1,7 @@
+/*
+ * 我的页面-订单
+ */
+
 import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +14,7 @@ class MineOrderStatusWidget extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         height: 75.0,
-        color: AppColors.primaryWhiteColor,
+        color: AppColors.white,
         margin: const EdgeInsets.only(bottom: 10),
         child: GridView.count(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
