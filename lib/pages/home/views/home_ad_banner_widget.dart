@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../../common/page/base_placeholder_img.dart';
 import '../../../common/utils/screen_utils.dart';
-import '../logics/home_logic.dart';
 import '../models/home_content_model.dart';
 
 class HomeAdWidget extends StatelessWidget {

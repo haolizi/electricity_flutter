@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,7 @@ class DetailBottomWidget extends StatelessWidget {
                 CartLogic logic = Get.find();
                 logic.addGoodsToCart(goodInfo.goodsId, goodInfo.goodsName, 1,
                     goodInfo.presentPrice, goodInfo.image1);
+                BotToast.showText(text: "加入成功");
               },
               child: Container(
                 width: 160.w,

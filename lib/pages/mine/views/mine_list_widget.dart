@@ -6,6 +6,7 @@ import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../pages/mine_address_page.dart';
 
@@ -23,11 +24,7 @@ class ListTitleWidget extends StatelessWidget {
 
   Widget _listItem(Map item, int index) {
     return InkWell(
-      onTap: () {
-        if (index == 2) {
-          Get.to(const AddressListPage());
-        }
-      },
+      onTap: () => _tapAction(index),
       child: Container(
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -47,6 +44,16 @@ class ListTitleWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _tapAction(int index) {
+    if (index == 2) {
+      Get.to(const AddressListPage());
+    } else if (index == 3) {
+      canLaunchUrl(Uri(scheme: 'tel', path: "123456789")).then((bool result) {
+        debugPrint("-----callResult:$result");
+      });
+    }
   }
 }
 

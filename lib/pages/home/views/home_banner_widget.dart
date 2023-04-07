@@ -1,9 +1,11 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
 import '../../../common/page/base_placeholder_img.dart';
 import '../../../common/utils/screen_utils.dart';
+import '../../detail/pages/detail_page.dart';
 import '../models/home_content_model.dart';
 
 class HomeBannerWidget extends StatelessWidget {
@@ -20,15 +22,13 @@ class HomeBannerWidget extends StatelessWidget {
           autoplay: true,
           itemCount: bannerList.length,
           itemBuilder: (BuildContext context, int index) {
-            String imageUrl = bannerList[index].image;
+            Slide model = bannerList[index];
             return GestureDetector(
               onTap: () {
-                // ApplicationRouter.router.navigateTo(
-                //     context, 'detail?id=${value.bannerList[index]['goodsId']}',
-                //     transition: TransitionType.native);
+                Get.to(DetailPage(model.goodsId));
               },
               child: BaseCachedNetworkImage(
-                url: imageUrl,
+                url: model.image,
                 w: screenGetWidth(),
                 defImagePath: 'images/banner_placehold.png',
               ),

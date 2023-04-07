@@ -44,7 +44,6 @@ dependencies:
   tab_indicator_styler: ^2.0.0
   path_provider: ^2.0.13
   webview_flutter: ^4.0.1
-#  animations: ^2.0.7
   get_storage: ^2.1.1
   url_launcher: ^6.1.10
   bot_toast: ^4.0.3
@@ -83,3 +82,4 @@ flutter:
     - images/mine_position.png
     - images/mine_service.png
     - images/mine_about.png
+    - images/cart_empty_icon.png

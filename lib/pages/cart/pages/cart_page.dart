@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../views/cart_bottom_widget.dart';
+import '../views/cart_empty_widget.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -27,6 +28,7 @@ class _CartPageState extends State<CartPage>
       title: "购物车",
       leadType: AppBarBackType.none,
       body: GetBuilder<CartLogic>(builder: (logic) {
+        if (logic.infoList.isEmpty) return const CartHeadNormalWidget();
         return Stack(
           children: <Widget>[
             ListView.builder(
@@ -45,6 +47,9 @@ class _CartPageState extends State<CartPage>
       }),
     );
   }
+
+
+
 
   @override
   bool get wantKeepAlive => true;

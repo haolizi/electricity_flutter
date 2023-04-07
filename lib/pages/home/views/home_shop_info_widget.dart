@@ -54,8 +54,8 @@ class HomeShopInfoWidget extends StatelessWidget {
   }
 
   Future<void> _launchUrl(String phone) async {
-    // canLaunchUrl(Uri(scheme: 'tel', path: phone)).then((bool result) {
-    //   debugPrint("-----callResult:$result");
-    // });
+    canLaunchUrl(Uri(scheme: 'tel', path: "123456789")).then((bool result) {
+      debugPrint("-----callResult:$result");
+    });
   }
 }

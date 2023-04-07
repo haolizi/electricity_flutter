@@ -55,10 +55,7 @@ electricity_flutter是仿照【百姓生活+】微信小程序开发的Flutter�
 或者尝试下科学上网。
 
 ### 环境
-................................................
-最好使用和我一样的flutter版本，sdk下载地址：
-https://flutter.cn/docs/development/tools/sdk/releases?tab=macos
-................................................
+最好使用和我一样的flutter版本
 ```
 flutter doctor -v
 [✓] Flutter (Channel stable, 3.0.5, on macOS 12.1 21C52 darwin-arm, locale zh-Hans-CN)

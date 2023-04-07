@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/page/base_zoom_tap_animation.dart';
 import '../../../common/utils/screen_utils.dart';
 import '../models/home_content_model.dart';
 
@@ -62,7 +63,7 @@ class HomeRecommendWidget extends StatelessWidget {
         itemCount: goodsList.length,
         itemBuilder: (BuildContext context, int index) {
           Recommend model = goodsList[index];
-          return GestureDetector(
+          return BaseZoomTapAnimation(
             onTap: () {
               Get.to(DetailPage(model.goodsId));
             },

@@ -7,6 +7,7 @@ import '../utils/color.dart';
 import '../utils/screen_utils.dart';
 import 'base_placeholder_img.dart';
 import 'base_text_style.dart';
+import 'base_zoom_tap_animation.dart';
 
 class GoodsItemWidget extends StatelessWidget {
   const GoodsItemWidget({Key? key, required this.goodsModel, this.itemWd})
@@ -20,7 +21,7 @@ class GoodsItemWidget extends StatelessWidget {
   }
 
   Widget _itemWidget() {
-    return GestureDetector(
+    return BaseZoomTapAnimation(
       onTap: () {
         Get.to(DetailPage(goodsModel.goodsId));
       },
