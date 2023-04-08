@@ -33,6 +33,8 @@ class CategoryModel {
   };
 }
 
+
+
 class CategoryGoodModel {
   CategoryGoodModel({
     required this.image,

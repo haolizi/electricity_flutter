@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../common/page/base_placeholder_img.dart';
+import '../../../common/page/base_zoom_tap_animation.dart';
 import '../../../common/utils/screen_utils.dart';
 
 class FloorItemWidget extends StatelessWidget {
@@ -63,15 +64,14 @@ class FloorItemWidget extends StatelessWidget {
 
   // 商品item
   Widget _goodsItem(Floor goods) {
-    return SizedBox(
-      width: screenGetWidth() / 2,
-      child: GestureDetector(
-        onTap: () {
-          Get.to(DetailPage(goods.goodsId));
-        },
+    return BaseZoomTapAnimation(
+      onTap: () {
+        Get.to(DetailPage(goods.goodsId));
+      },
+      child: SizedBox(
+        width: screenGetWidth() / 2,
         child: BaseCachedNetworkImage(
           url: goods.image,
-          // onTap: () {},
         ),
       ),
     );

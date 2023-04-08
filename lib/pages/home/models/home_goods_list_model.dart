@@ -1,4 +1,3 @@
-
 class GoodsModel {
   GoodsModel({
     required this.name,

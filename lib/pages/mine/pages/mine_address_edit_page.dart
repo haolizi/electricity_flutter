@@ -10,6 +10,8 @@ import 'package:electricity_flutter/pages/mine/logics/mine_address_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../common/utils/screen_utils.dart';
+
 class AddressEditPage extends StatelessWidget {
   const AddressEditPage({Key? key}) : super(key: key);
 
@@ -30,7 +32,11 @@ class AddressEditPage extends StatelessWidget {
           ),
 
           // 添加按钮
-          Positioned(bottom: 0, left: 0, child: _addWidget(context)),
+          Positioned(
+            left: 0,
+            bottom: getBottomBarHeight(),
+            child: _bottomAddButton(context),
+          ),
         ],
       ),
     );
@@ -64,7 +70,7 @@ class AddressEditPage extends StatelessWidget {
     );
   }
 
-  Widget _addWidget(BuildContext context) {
+  Widget _bottomAddButton(BuildContext context) {
     return InkWell(
       onTap: () {
         bool isInputAll = true;
@@ -91,14 +97,13 @@ class AddressEditPage extends StatelessWidget {
       },
       child: Container(
         width: Get.width,
-        height: 45,
+        height: 44,
         alignment: Alignment.center,
         color: AppColors.themeColor,
         child: BaseTextWidget(
           '添加',
           style: baseTextStyle(
             color: AppColors.white,
-            fontSize: 18,
           ),
         ),
       ),

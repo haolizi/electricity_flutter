@@ -67,7 +67,7 @@ class BaseAppBar extends AppBar implements PreferredSizeWidget {
           backgroundColor: backgroundColor ?? Colors.white,
           leading: leading ??
               (leadingType == AppBarBackType.none
-                  ? Container()
+                  ? const SizedBox()
                   : AppBarBack(
                       leadingType ?? AppBarBackType.back,
                       onWillPop: onWillPop ?? onWillPop,
@@ -104,7 +104,9 @@ class AppBarBack extends StatelessWidget {
               size: 24.0,
             )
           : Container(
-              padding: const EdgeInsets.only(right: 15, left: 15),
+              width: 44,
+              height: 44,
+              alignment: Alignment.center,
               child: Image.asset(
                 'images/nav_back.png',
                 color: color,

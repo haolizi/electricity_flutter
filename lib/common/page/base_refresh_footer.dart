@@ -10,7 +10,7 @@ class BaseRefreshFooter extends StatelessWidget {
       builder: (BuildContext context, LoadStatus? mode) {
         Widget body;
         if (mode == LoadStatus.idle) {
-          body = const Text("pull up load");
+          body = const Text("");
         } else if (mode == LoadStatus.loading) {
           body = const CupertinoActivityIndicator();
         } else if (mode == LoadStatus.failed) {

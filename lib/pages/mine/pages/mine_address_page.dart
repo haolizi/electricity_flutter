@@ -10,9 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../common/utils/screen_utils.dart';
 import '../logics/mine_address_logic.dart';
 import '../models/mine_address_model.dart';
 import '../views/mine_address_no_data.dart';
+import 'mine_address_edit_page.dart';
 
 class AddressListPage extends StatefulWidget {
   const AddressListPage({Key? key}) : super(key: key);
@@ -34,7 +36,12 @@ class _AddressListPageState extends State<AddressListPage> {
       title: "收货地址",
       body: GetBuilder<MineAddressLogic>(builder: (logic) {
         if (logic.infoList.isEmpty) return const NoAddressWidget();
-        return _addressListWidget(logic.infoList);
+        return Stack(
+          children: [
+            _addressListWidget(logic.infoList),
+            _bottomAddButton(),
+          ],
+        );
       }),
     );
   }
@@ -119,6 +126,28 @@ class _AddressListPageState extends State<AddressListPage> {
             child: BaseTextWidget(address),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _bottomAddButton() {
+    return Positioned(
+      left: 0,
+      bottom: getBottomBarHeight(),
+      child: InkWell(
+        onTap: () {
+          Get.to(() => const AddressEditPage());
+        },
+        child: Container(
+          width: screenGetWidth(),
+          height: 44,
+          color: AppColors.themeColor,
+          alignment: Alignment.center,
+          child: BaseTextWidget(
+            "点击添加",
+            style: baseTextStyle(color: AppColors.white),
+          ),
+        ),
       ),
     );
   }

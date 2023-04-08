@@ -1,7 +1,6 @@
 import 'package:electricity_flutter/common/page/base_scaffold.dart';
 import 'package:electricity_flutter/common/page/base_text_style.dart';
 import 'package:electricity_flutter/common/utils/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh_plus/pull_to_refresh_plus.dart';
@@ -17,6 +16,7 @@ import '../views/home_floor_widget.dart';
 import '../views/home_goods_list_widget.dart';
 import '../views/home_recommend_widget.dart';
 import '../views/home_shop_info_widget.dart';
+import 'search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage>
     return BaseScaffold(
       title: "某知名电商",
       leadType: AppBarBackType.none,
+      actions: _searchActions(),
       body: GetBuilder<HomeContentLogic>(builder: (logic) {
         HomeContentModel contentModel = logic.homeContentModel;
         List<GoodsModel> goodsList = logic.goodsList;
@@ -138,6 +139,22 @@ class _HomePageState extends State<HomePage>
         ),
       ),
     );
+  }
+
+  List<Widget> _searchActions() {
+    List<Widget> actions = [];
+    Widget searchWidget = InkWell(
+      onTap: () {
+        Get.to(() => const SearchPage());
+      },
+      child: SizedBox(
+        width: 44,
+        height: 44,
+        child: Image.asset("images/search_icon.png"),
+      ),
+    );
+    actions.add(searchWidget);
+    return actions;
   }
 
   @override

@@ -21,5 +21,7 @@ class AppColors {
   static const Color white = Colors.white;
 
   static const Color primarySubTitleColor242 =
-  Color.fromRGBO(242, 242, 242, 1.0);
+      Color.fromRGBO(242, 242, 242, 1.0);
+  static const Color primarySubTitleColor212 =
+      Color.fromRGBO(212, 212, 212, 1.0);
 }
